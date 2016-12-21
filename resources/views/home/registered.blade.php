@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="css/css.css" rel="stylesheet" type="text/css" />
-<link href="css/common.css" rel="stylesheet" tyle="text/css" />
-<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>
-<script src="js/common_js.js" type="text/javascript"></script>
+<link href="{{ asset('css/css.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('css/common.css')}}" rel="stylesheet" tyle="text/css" />
+<script src="{{ asset('js/jquery-1.9.1.min.js')}}" type="text/javascript"></script>
+<script src="{{ asset('js/jquery.SuperSlide.2.1.1.js')}}" type="text/javascript"></script>
+<script src="{{ asset('js/common_js.js')}}" type="text/javascript"></script>
 <title>用户注册</title>
 </head>
 
@@ -14,7 +14,7 @@
 <!--顶部样式-->
 <div class="common_top">
  <div class="Narrow">
-  <div class=" left logo"><a href="#"><img src="images/logo.png" /></a></div>
+  <div class=" left logo"><a href="#"><img src="{{asset('images/logo.png')}}" /></a></div>
   <!--电话图层-->
   <div class="phone"><label>全国服务热线：</label><em>400-345-5633</em></div>
  </div>
@@ -22,7 +22,7 @@
 <!--用户注册样式-->
 <div class="registered_style Narrow clearfix">
    <div class="left_advertising">
-    <img src="images/bg_03.png" />
+    <img src="{{asset('images/bg_03.png')}}" />
    </div>
    <div class="right_register">
      <div class="register_Switching" id="register_Switching">

@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="css/css.css" rel="stylesheet" type="text/css" />
-<link href="css/common.css" rel="stylesheet" tyle="text/css" />
-<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<script src="js/jquery.min.1.8.2.js" type="text/javascript"></script>
-<script src="js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>
-<script src="js/common_js.js" type="text/javascript"></script>
-<script src="js/footer.js" type="text/javascript"></script>
+<link href="{{asset('css/css.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('css/common.css')}}" rel="stylesheet" tyle="text/css" />
+<link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
+<script src="{{asset('js/jquery.min.1.8.2.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/jquery.SuperSlide.2.1.1.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/common_js.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/footer.js')}}" type="text/javascript"></script>
 <!--[if IE 7]>
 <link rel="stylesheet" href="css/font-awesome-ie7.min.css">
 <![endif]-->
@@ -83,7 +83,7 @@ $(document).ready(function () {
 <div id="shop_cart">
  <div id="header">
   <div class="logo">
-  <a href="#"><img src="images/logo.png" /></a>
+  <a href="#"><img src="{{asset('images/logo.png')}}" /></a>
   <div class="phone">
    免费咨询热线:<span class="telephone">400-3454-343</span>
   </div>
@@ -96,7 +96,7 @@ $(document).ready(function () {
 <!--提示购物步骤-->
 
  <div class="prompt_step">
-  <img src="images/cart_step_01.png" />
+  <img src="{{asset('images/cart_step_01.png')}}" />
  </div>
  <!--购物车商品-->
  <div class="Shopping_list">

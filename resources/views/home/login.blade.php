@@ -24,23 +24,34 @@
    <div class="login_advertising"><img src="{{ asset('images/bg_03.png') }}" /></div>
   <div class="login_frame">
    <div class="login-form">
-     <div class="login-name"><h1 class="name">用户登录</h1><span class="login_link"><a href="registered.html"><b></b>用户注册</a></span></div>
+     <div class="login-name"><h1 class="name">用户登录</h1><span class="login_link"><a href="/home/registered"><b></b>用户注册</a></span></div>
 	  <!--提示信息-->
-	    <div class="Prompt">账号密码不能为空！ </div>
+	    <form action="{{ url('home/login') }}" method="post">
+	    <input type='hidden' name='_token' value='{{ csrf_token() }}'> 
 	    <div class="form clearfix">
-	     <div class="item item-fore1"><label for="loginname" class="login-label name-label"></label><input name="" type="text"  class="text" placeholder="请输入用户"/>
+	    <br/>
+	    	<h3>
+	    	 @if (session('msg'))
+                        {{ session('msg') }}
+                    @else
+                      Hello Tea!
+             @endif	
+             <h3>
+	     <div class="item item-fore1"><label for="loginname" class="login-label name-label"></label><input name="username" type="text"  class="text" placeholder="请输入用户"/>
 		 </div>
-		 <div class="item item-fore2"><label for="nloginpwd" class="login-label pwd-label" ></label><input name="" type="password"  class="text" placeholder="用户密码"/>
+		 <br>
+		 <div class="item item-fore2"><label for="nloginpwd" class="login-label pwd-label" ></label><input name="password" type="password"  class="text" placeholder="用户密码"/>
 	     </div> 
 	     <div class="Forgetpass"><a href="#">忘记密码？</a></div>
 	    </div>	
 	    <div class="login-btn">
-	    <a href="javascript:;" class="btn_login">登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
+	    	<input type="submit" value="登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录" style="background:red;width:310px;height:45px;font-size:20px;">
 	  </div>
     </div>
     <div class="Login_Method">
      
     </div>
+	</form>
   </div>
 </div>
 </div>

@@ -2,48 +2,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="css/css.css" rel="stylesheet" type="text/css" />
-<link href="css/common.css" rel="stylesheet" tyle="text/css" />
-<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<script src="js/jquery.min.1.8.2.js" type="text/javascript"></script>
-<script src="js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>
-<script src="js/common_js.js" type="text/javascript"></script>
-<script src="js/footer.js" type="text/javascript"></script>
+<link href="{{ asset('css/css.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('css/common.css')}}" rel="stylesheet" tyle="text/css" />
+<link href="{{ asset('css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
+<script src="{{ asset('js/jquery.min.1.8.2.js')}}" type="text/javascript"></script>
+<script src="{{ asset('js/jquery.SuperSlide.2.1.1.js')}}" type="text/javascript"></script>
+<script src="{{ asset('js/common_js.js')}}" type="text/javascript"></script>
+<script src="{{ asset('js/footer.js')}}" type="text/javascript"></script>
 <!--[if IE 7]>
 <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css">
 <![endif]-->
+<!--"{{ asset('js/jquery.min.js') }}"-->
 <title>产品列表</title>
 </head>
 
 <body>
 <!--顶部样式-->
-<div id="top">
-  <div class="top">
-    <div class="Collection"><em></em><a href="#">收藏我们</a></div>
-	<div class="hd_top_manu clearfix">
-	  <ul class="clearfix">
-	   <li class="hd_menu_tit zhuce" data-addclass="hd_menu_hover">欢迎光临本店！<a href="#" class="red">[请登录]</a> 新用户<a href="#" class="red">[免费注册]</a></li>
-	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的订单</a></li> 
-	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">购物车(<b>0</b>)</a> </li>
-	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">联系我们</a></li>
-	   <li class="hd_menu_tit list_name" data-addclass="hd_menu_hover"><a href="#" class="hd_menu">客户服务</a>
-	    <div class="hd_menu_list">
-		   <ul>
-		    <li><a href="#">常见问题</a></li>
-			<li><a href="#">在线退换货</a></li>
-		    <li><a href="#">在线投诉</a></li>
-			<li><a href="#">配送范围</a></li>
-		   </ul>
-		</div>	   
-	   </li>
-	  </ul>
-	</div>
-  </div>
-</div>
+@include('fixbox.top')
 <!--logo和搜索样式-->
 <div id="header"  class="header">
   <div class="logo">
-  <a href="#"><img src="images/logo.png" /></a>
+  <a href="#"><img src="{{ asset('images/logo.png')}} " /></a>
   <div class="phone">
    免费咨询热线:<span class="telephone">400-3454-343</span>
   </div>
@@ -62,7 +41,7 @@
 	 <!--左侧栏目开始-->
 	 <div class="Menu_list">	
 	    <div class="menu_title">茶叶品种</div>
-        <a href="#">贡茗茶</a><a href="#">冠茗茶</a><a href="#">佳茗茶</a><a href="#">珍茗茶</a><a href="#">绿茶</a><a href="#">毛尖茶</a>
+        <a href="/home/Product_List">巴山雀舌</a><a href="/home/Gun_Ming">贡茗</a><a href="/home/Guan_Ming">冠茗</a><a href="/home/Zang_Tang">臧芝堂</a><a href="/home/Da_Ba">大巴山茶</a><a href="/home/Da_Zhou">达州（茶）</a>
 	</div>	
     <div class="Menu_list">	
 	    <div class="menu_title">茶叶价格</div>
@@ -82,13 +61,13 @@
 	</div>
     <div class="Navigation" id="Navigation">
 		 <ul class="Navigation_name">
-			<li><a class="nav_on" id="mynav1"  href="index.html"><span>首页</span></a></li>
-			<li><a class="nav_on" id="mynav2"  href="#"><span>巴山雀舌</span></a></li>
-			<li><a class="nav_on" id="mynav3"  href="#"><span>贡茗</span></a></li>
-			<li><a class="nav_on" id="mynav4"  href="#"><span>冠茗</span></a></li>
-			<li><a class="nav_on" id="mynav5"  href="#"><span>臧芝堂（藏茶）</span></a></li>
-			<li><a class="nav_on" id="mynav6"  href="#"><span>大巴山（茗茶）</span></a></li>
-			<li><a class="nav_on" id="mynav7"  href="#"><span>达州（茶）</span></a></li>
+			<li><a class="nav_on" id="mynav1"  href="/homeindex"><span>首页</span></a></li>
+			<li><a class="nav_on" id="mynav2"  href="/home/Product_List"><span>巴山雀舌</span></a></li>
+			<li><a class="nav_on" id="mynav3"  href="/home/Gun_Ming"><span>贡茗</span></a></li>
+			<li><a class="nav_on" id="mynav4"  href="/home/Guan_Ming"><span>冠茗</span></a></li>
+			<li><a class="nav_on" id="mynav5"  href="/home/Zang_Tang"><span>臧芝堂</span></a></li>
+			<li><a class="nav_on" id="mynav6"  href="/home/Da_Ba"><span>大巴山茶</span></a></li>
+			<li><a class="nav_on" id="mynav7"  href="/home/Da_Zhou"><span>达州（茶）</span></a></li>
 			<li><a class="nav_on" id="mynav8"  href="#"><span>活动</span></a></li>
 			<li><a class="nav_on" id="mynav8"  href="#"><span>联系我们</span></a></li>
 		 </ul>			 
@@ -103,7 +82,8 @@
 	 <!--<div class="prompt"></div><div class="nogoods"><b></b>购物车中还没有商品，赶紧选购吧！</div>-->
 	 <ul class="p_s_list">	   
 		<li>
-		    <div class="img"><img src="images/tianma.png"></div>
+		    <div class="img"><img src="{{ asset('images/tianma.png')}}"></div>
+			<!--"{{ asset('js/jquery.min.js') }}"-->
 		    <div class="content"><p><a href="#">产品名称</a></p><p>颜色分类:紫花8255尺码:XL</p></div>
 			<div class="Operations">
 			<p class="Price">￥55.00</p>
@@ -178,9 +158,9 @@
  <!--产品列表样式-->
  <div class="p_list  clearfix">
    <ul>
-    <li class="gl-item">
+    <li class="gl-item">				
 	<div class="Borders">
-	 <div class="img"><a href="Product_Detailed.html"><img src="Products/p-1.webp.jpg" style="width:220px;height:220px"/></a></div>	 
+	 <div class="img"><a href="Product_Detailed.html"><img src="{{ asset('Products/1.jpg')}}" style="width:220px;height:220px"/></a></div>	 
 	 <div class="name"><a href="Product_Detailed.html">【2015年新茶】巴山雀舌60克毛尖马克罐（绿）</a></div>
      <div class="Price">商城价：<b>¥89</b><span>原价：<em>123</em></span></div>
 	 <div class="Review">已有<a href="#">2345</a>评论</div>
@@ -192,7 +172,7 @@
 	</li>
 	<li class="gl-item">
 	<div class="Borders">
-	 <div class="img"><a href="Product_Detailed.html"><img src="Products/p-1.webp.jpg" style="width:220px;height:220px"/></a></div>
+	 <div class="img"><a href="Product_Detailed.html"><img src="{{ asset('Products/1.jpg')}}" style="width:220px;height:220px"/></a></div>
 	 <div class="name"><a href="Product_Detailed.html">【2015年新茶】巴山雀舌60克毛尖马克罐（绿）</a></div>
       <div class="Price">商城价：<b>¥89</b><span>原价：<em>123</em></span></div>
 	 <div class="Review">已有<a href="#">2345</a>评论</div>
@@ -204,7 +184,7 @@
 	</li>
 	<li class="gl-item">
 	<div class="Borders">
-	 <div class="img"><a href="Product_Detailed.html"><img src="Products/p-1.webp.jpg" style="width:220px;height:220px"/></a></div>
+	 <div class="img"><a href="Product_Detailed.html"><img src="{{ asset('Products/1.jpg')}}" style="width:220px;height:220px"/></a></div>
 	 <div class="name"><a href="Product_Detailed.html">【2015年新茶】巴山雀舌60克毛尖马克罐（绿）</a></div>
       <div class="Price">商城价：<b>¥89</b><span>原价：<em>123</em></span></div>
 	 <div class="Review">已有<a href="#">2345</a>评论</div>
@@ -216,7 +196,7 @@
 	</li>
 	<li class="gl-item">
 	<div class="Borders">
-	 <div class="img"><a href="#"><img src="Products/p-1.webp.jpg" style="width:220px;height:220px"/></a></div>
+	 <div class="img"><a href="#"><img src="{{ asset('Products/1.jpg')}}" style="width:220px;height:220px"/></a></div>
 	 <div class="Price"><b>¥89</b><span>[¥49.01/500g]</span></div>
 	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
 	 <div class="Review">已有<a href="#">2345</a>评论</div>
@@ -228,7 +208,7 @@
 	</li>
 	<li class="gl-item">
 	<div class="Borders">
-	 <div class="img"><a href="#"><img src="Products/p-1.webp.jpg" style="width:220px;height:220px"/></a></div>
+	 <div class="img"><a href="#"><img src="{{ asset('Products/1.jpg')}}" style="width:220px;height:220px"/></a></div>
 	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
       <div class="Price">商城价：<b>¥89</b><span>原价：<em>123</em></span></div>
 	 <div class="Review">已有<a href="#">2345</a>评论</div>
@@ -240,7 +220,7 @@
 	</li>
 	<li class="gl-item">
 	<div class="Borders">
-	 <div class="img"><a href="#"><img src="Products/p-3.webp.jpg" style="width:220px;height:220px"/></a></div>
+	 <div class="img"><a href="#"><img src="{{ asset('Products/3.jpg')}}" style="width:220px;height:220px"/></a></div>
 	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
       <div class="Price">商城价：<b>¥89</b><span>原价：<em>123</em></span></div>
 	 <div class="Review">已有<a href="#">2345</a>评论</div>
@@ -252,7 +232,7 @@
 	</li>
 	<li class="gl-item">
 	<div class="Borders">
-	 <div class="img"><a href="#"><img src="Products/p-3.webp.jpg" style="width:220px;height:220px"/></a></div>
+	 <div class="img"><a href="#"><img src="{{ asset('Products/3.jpg')}}" style="width:220px;height:220px"/></a></div>
 	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
       <div class="Price">商城价：<b>¥89</b><span>原价：<em>123</em></span></div>
 	 <div class="Review">已有<a href="#">2345</a>评论</div>
@@ -264,7 +244,7 @@
 	</li>
 	<li class="gl-item">
 	<div class="Borders">
-	 <div class="img"><a href="#"><img src="Products/p-3.webp.jpg" style="width:220px;height:220px"/></a></div>
+	 <div class="img"><a href="#"><img src="{{ asset('Products/3.jpg')}}" style="width:220px;height:220px"/></a></div>
 	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
       <div class="Price">商城价：<b>¥89</b><span>原价：<em>123</em></span></div>
 	 <div class="Review">已有<a href="#">2345</a>评论</div>
@@ -276,7 +256,7 @@
 	</li>
 	<li class="gl-item">
 	<div class="Borders">
-	 <div class="img"><a href="#"><img src="Products/p-3.webp.jpg" style="width:220px;height:220px"/></a></div>
+	 <div class="img"><a href="#"><img src="{{ asset('Products/3.jpg')}}" style="width:220px;height:220px"/></a></div>
 	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
       <div class="Price">商城价：<b>¥89</b><span>原价：<em>123</em></span></div>
 	 <div class="Review">已有<a href="#">2345</a>评论</div>
@@ -288,7 +268,7 @@
 	</li>
 	<li class="gl-item">
 	<div class="Borders">
-	 <div class="img"><a href="#"><img src="Products/p-4.webp.jpg" style="width:220px;height:220px"/></a></div>
+	 <div class="img"><a href="#"><img src="{{ asset('Products/4.jpg')}}" style="width:220px;height:220px"/></a></div>
 	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
       <div class="Price">商城价：<b>¥89</b><span>原价：<em>123</em></span></div>
 	 <div class="Review">已有<a href="#">2345</a>评论</div>
@@ -300,7 +280,7 @@
 	</li>
 	<li class="gl-item">
 	<div class="Borders">
-	 <div class="img"><a href="#"><img src="Products/p-4.webp.jpg" style="width:220px;height:220px"/></a></div>
+	 <div class="img"><a href="#"><img src="{{ asset('Products/4.jpg')}}" style="width:220px;height:220px"/></a></div>
 	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
       <div class="Price">商城价：<b>¥89</b><span>原价：<em>123</em></span></div>
 	 <div class="Review">已有<a href="#">2345</a>评论</div>
@@ -312,7 +292,7 @@
 	</li>
 	<li class="gl-item">
 	<div class="Borders">
-	 <div class="img"><a href="#"><img src="Products/p-4.webp.jpg" style="width:220px;height:220px"/></a></div>
+	 <div class="img"><a href="#"><img src="{{ asset('Products/4.jpg')}}" style="width:220px;height:220px"/></a></div>
 	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
       <div class="Price">商城价：<b>¥89</b><span>原价：<em>123</em></span></div>
 	 <div class="Review">已有<a href="#">2345</a>评论</div>
@@ -324,7 +304,7 @@
 	</li>
 	<li class="gl-item">
 	<div class="Borders">
-	 <div class="img"><a href="#"><img src="Products/p-4.webp.jpg" style="width:220px;height:220px"/></a></div>
+	 <div class="img"><a href="#"><img src="{{ asset('Products/4.jpg')}}" style="width:220px;height:220px"/></a></div>
 	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
       <div class="Price">商城价：<b>¥89</b><span>原价：<em>123</em></span></div>
 	 <div class="Review">已有<a href="#">2345</a>评论</div>
@@ -336,7 +316,7 @@
 	</li>
 	<li class="gl-item">
 	<div class="Borders">
-	 <div class="img"><a href="#"><img src="Products/p-5.webp.jpg" style="width:220px;height:220px"/></a></div>
+	 <div class="img"><a href="#"><img src="{{ asset('Products/5.jpg')}}" style="width:220px;height:220px"/></a></div>
 	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
       <div class="Price">商城价：<b>¥89</b><span>原价：<em>123</em></span></div>
 	 <div class="Review">已有<a href="#">2345</a>评论</div>
@@ -348,7 +328,7 @@
 	</li>
 	<li class="gl-item">
 	<div class="Borders">
-	 <div class="img"><a href="#"><img src="Products/p-5.webp.jpg" style="width:220px;height:220px"/></a></div>
+	 <div class="img"><a href="#"><img src="{{ asset('Products/5.jpg')}}" style="width:220px;height:220px"/></a></div>
 	 <div class="name"><a href="#">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a></div>
       <div class="Price">商城价：<b>¥89</b><span>原价：<em>123</em></span></div>
 	 <div class="Review">已有<a href="#">2345</a>评论</div>
@@ -387,7 +367,7 @@
  <div class="streak"></div>
  <div class="footerbox clearfix">
   <div class="left_footer">
-   <div class="img"><img src="images/img_33.png" /></div>
+   <div class="img"><img src="{{ asset('images/img_33.png')}}" /></div>
    <div class="phone">
     <h2>服务咨询电话</h2>
     <p class="Numbers">400-3455-334</p>
@@ -441,21 +421,21 @@
   <div class="footerbox clearfix ">
   <ul class="wrap">
 	 <li>
-	  <a href="#"><img src="images/icon_img_02.png" data-bd-imgshare-binded="1"></a>
+	  <a href="#"><img src="{{ asset('images/icon_img_02.png')}}" data-bd-imgshare-binded="1"></a>
 	  <b>正品保证</b>
 	  <span>正品行货 放心选购</span>
 	 </li>
-	 <li><a href="#"><img src="images/icon_img_03.png" data-bd-imgshare-binded="2"></a>
+	 <li><a href="#"><img src="{{ asset('images/icon_img_03.png')}}" data-bd-imgshare-binded="2"></a>
 	  <b>满68元包邮</b>
 	  <span>购物满68元，免费快递</span>
 	 </li>
 	 <li>
-	  <a href="#"><img src="images/icon_img_04.png" data-bd-imgshare-binded="3"></a>
+	  <a href="#"><img src="{{ asset('images/icon_img_04.png')}}" data-bd-imgshare-binded="3"></a>
 	  <b>厂家直供</b>
 	  <span>价格更低，质量更可靠</span>
 	 </li>
       <li>
-	  <a href="#"><img src="images/icon_img_05.png" data-bd-imgshare-binded="4"></a>
+	  <a href="#"><img src="{{ asset('images/icon_img_05.png')}}" data-bd-imgshare-binded="4"></a>
 	  <b>权威认证</b>
 	  <span>政府扶持单位，安全保证</span>
 	 </li>
@@ -470,47 +450,6 @@
  </div>
 </div>
  <!--右侧菜单栏购物车样式-->
-<div class="fixedBox">
-  <ul class="fixedBoxList">
-      <li class="fixeBoxLi user"><a href="#"> <span class="fixeBoxSpan"></span> <strong>用户</strong></a> </li>
-    <li class="fixeBoxLi cart_bd" style="display:block;" id="cartboxs">
-		<p class="good_cart">0</p>
-			<span class="fixeBoxSpan"></span> <strong>购物车</strong>
-			<div class="cartBox">
-       		<div class="bjfff"></div><div class="message">购物车内暂无商品，赶紧选购吧</div>    </div></li>
-    <li class="fixeBoxLi Service "> <span class="fixeBoxSpan"></span> <strong>客服</strong>
-      <div class="ServiceBox">
-        <div class="bjfffs"></div>
-        <dl onclick="javascript:;">
-		    <dt><img src="images/Service1.png"></dt>
-		       <dd><strong>QQ客服1</strong>
-		          <p class="p1">9:00-22:00</p>
-		           <p class="p2"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=123456&amp;site=DGG三端同步&amp;menu=yes">点击交谈</a></p>
-		          </dd>
-		        </dl>
-				<dl onclick="javascript:;">
-		          <dt><img src="images/Service1.png"></dt>
-		          <dd> <strong>QQ客服1</strong>
-		            <p class="p1">9:00-22:00</p>
-		            <p class="p2"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=123456&amp;site=DGG三端同步&amp;menu=yes">点击交谈</a></p>
-		          </dd>
-		        </dl>
-	          </div>
-     </li>
-	 <li class="fixeBoxLi code cart_bd " style="display:block;" id="cartboxs">
-			<span class="fixeBoxSpan"></span> <strong>微信</strong>
-			<div class="cartBox">
-       		<div class="bjfff"></div>
-			<div class="QR_code">
-			 <p><img src="images/erweim.jpg" width="150px" height="150px" style=" margin-top:10px;" /></p>
-			 <p>微信扫一扫，关注我们</p>
-			</div>		
-			</div>
-			</li>
-
-    <li class="fixeBoxLi Home"> <a href="./"> <span class="fixeBoxSpan"></span> <strong>收藏</strong> </a> </li>
-    <li class="fixeBoxLi BackToTop"> <span class="fixeBoxSpan"></span> <strong>返回顶部</strong> </li>
-  </ul>
-</div>
+@include('fixbox.fixbox')
 </body>
 </html>

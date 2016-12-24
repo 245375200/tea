@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="{{ asset('css/css.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 <link href="{{ asset('css/common.css') }}" rel="stylesheet" tyle="text/css"/>
 <script src="{{ asset('js/jquery-1.9.1.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jquery.SuperSlide.2.1.1.js') }}" type="text/javascript"></script>
@@ -30,20 +31,26 @@
 	    <input type='hidden' name='_token' value='{{ csrf_token() }}'> 
 	    <div class="form clearfix">
 	    <br/>
-	    	<h3>
+	    	<h2 style="color:red;">
 	    	 @if (session('msg'))
                         {{ session('msg') }}
                     @else
-                      Hello Tea!
+                      Hello Welocme Login!
              @endif	
-             <h3>
+             <h2>
 	     <div class="item item-fore1"><label for="loginname" class="login-label name-label"></label><input name="username" type="text"  class="text" placeholder="请输入用户"/>
 		 </div>
 		 <br>
 		 <div class="item item-fore2"><label for="nloginpwd" class="login-label pwd-label" ></label><input name="password" type="password"  class="text" placeholder="用户密码"/>
 	     </div> 
-	     <div class="Forgetpass"><a href="#">忘记密码？</a></div>
-	    </div>	
+	     <div class="Forgetpass"><a href="/home/findpass">忘记密码？</a></div>
+	     
+	     <div class="item-fore1">
+		     <input name="code" type="text"  class="text"  placeholder="请输入验证码"/ style="width:100px;">
+		     <a class="phone_verification" style="color:white;background-Color:white;"><img src="{{ url('/capch/'.time()) }}" onclick="this.src='{{ url('/capch') }}/'+Math.random()"  style="float:right;"></a> 
+	    </div>
+	    <br/>
+	    <br/>
 	    <div class="login-btn">
 	    	<input type="submit" value="登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录" style="background:red;width:310px;height:45px;font-size:20px;">
 	  </div>

@@ -752,6 +752,6 @@
  </div>
 </div>
  <!--右侧菜单栏购物车样式-->
-@include('fixbox.fixbox')
+ @include('fixbox.fixbox')
 </body>
 </html>

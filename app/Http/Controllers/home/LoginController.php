@@ -7,21 +7,22 @@ use App\Http\Controllers\Controller;
 
 use DB;
 use App\models\User;
+use App\Http\Requests;
 
 //验证码的类
 use Gregwar\Captcha\CaptchaBuilder;
 
 class LoginController extends Controller
 {
-    //
+    //登录时的验证
 
     public function dologin(Request $request)
     {
-        // dd($request->input('code'));
+        
         $mycode = session()->get('milkcaptcha');
-        if($mycode != $request->input('code')){
-            return back()->with('msg','验证码错误！');
-        }
+            if($mycode != $request->input('code')){
+                return back()->with('msg','验证码错误！');
+            }
         //实例化一个模型
     	$user = new User();
         //调用模型中的验证用户方法
@@ -30,8 +31,9 @@ class LoginController extends Controller
     	if($ob){
     		//如果都能通过，则把用户信息存储到session中
 			session(['homeuser'=>$ob]);
-			//重定向到后台页面
-			return redirect('/home');
+            
+			//重定向到前台页面
+			return redirect('/');
     	}else{
 			return back()->with('msg','登录失败：账号或者密码错误');
 		}
@@ -40,8 +42,8 @@ class LoginController extends Controller
     public function logout()
     {
         // 销毁session
-        session()->forget('adminuser');
-        return redirect('admin/login');
+        session()->forget('homeuser');
+        return redirect('home/login');
     }
 
     public function capch($tmp)
@@ -49,7 +51,7 @@ class LoginController extends Controller
         //生成验证码图片的Builder对象，配置相应属性
         $builder = new CaptchaBuilder;
         //可以设置图片宽高及字体
-        $builder->build($width = 100, $height = 40, $font = null);
+        $builder->build($width = 100, $height = 38, $font = null);
         //获取验证码的内容
         $phrase = $builder->getPhrase();
         //把内容存入session
@@ -57,5 +59,7 @@ class LoginController extends Controller
         
         return response($builder->output())->header('content-type','image/jpeg');
     }
+
+    
     
 }

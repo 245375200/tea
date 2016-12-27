@@ -21,7 +21,7 @@ Route::get('/homeindex',function(){
 
 // 前台首页的各个链接除了'首页'的连接
 Route::group(['prefix'=>'home'],function(){
-	// Route::get('/logout','home\IndexController@logout');
+	Route::get('/logout','home\LoginController@logout');
 	Route::get('/login','home\IndexController@login');
 	Route::get('/registered','home\IndexController@registered');
 	Route::get('/shopping_cart','home\IndexController@shopping_cart');
@@ -31,6 +31,7 @@ Route::group(['prefix'=>'home'],function(){
 	Route::get('/Zang_Tang','home\IndexController@zangtang');
 	Route::get('/Da_Ba','home\IndexController@daba');
 	Route::get('/Da_Zhou','home\IndexController@dazhou');
+
 
 });
 
@@ -42,15 +43,20 @@ Route::post('home/login','home\LoginController@dologin');
 
 // 前台找回密码
  Route::post('/home/Fpass','home\PassController@findPass');
-// Route::post('home/updatepass/{ $list->id }','home\UsersController@updatepass');
+
 Route::resource('/home/findpass','home\PassController');//用了里面的index方法
 
-// 前台用户资源控制器
-Route::resource('/homeusers','home\UsersController');
+//个人中心
+ Route::get('home/user_center/{id}','home\UsersController@index');
+ Route::get('home/user_Password',function(){
+ 	return view('home.user_Password');
+ });
+ Route::post('/home/password','home\UsersController@update');
+ Route::get('home/user_info/{id}','home\UsersController@info');
+ Route::post('home/user_infoupdate','home\UsersController@infoupdate');
+ Route::get('home/user_mypic/{id}','home\UsersController@userpic');
+ Route::post('/home/mypic_upload','home\UsersController@mypic');
 
-// 前台登录页面的提交   中间件
-Route::group(['prefix'=>'home','middleware' => 'checkUser'],function(){
-	Route::get('/logout','home\LoginController@logout');
-	Route::get('/','home\IndexController@index');
-});	
+
+
 

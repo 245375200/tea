@@ -1,15 +1,22 @@
+
+@if (!session()->exists('homeuser'))
+  header("location:/home/login")
+@endif
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="css/css.css" rel="stylesheet" type="text/css" />
-<link href="css/common.css" rel="stylesheet" type="text/css" />
-<script src="js/jquery.min.1.8.2.js" type="text/javascript"></script>
-<script src="js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/slide.js"></script>
-<script src="js/common_js.js" type="text/javascript"></script>
-<script src="js/jquery.foucs.js" type="text/javascript"></script>
-<title>修改密码</title>
+<link href="{{asset('css/css.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('css/common.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('css/font-awesome.min.cs')}}s" rel="stylesheet" type="text/css" />
+<script src="{{asset('js/jquery.min.1.8.2.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/jquery.SuperSlide.2.1.1.js')}}" type="text/javascript"></script>
+<script type="text/javascript" src="{{asset('js/slide.js')}}"></script>
+<script src="{{asset('js/common_js.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/jquery.foucs.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/footer.js')}}" type="text/javascript"></script>
+<title>用户中心</title>
 </head>
 
 <body>
@@ -19,7 +26,16 @@
     <div class="Collection"><em></em><a href="#">收藏我们</a></div>
 	<div class="hd_top_manu clearfix">
 	  <ul class="clearfix">
-	   <li class="hd_menu_tit zhuce" data-addclass="hd_menu_hover">欢迎光临本店！<a href="#" class="red">[请登录]</a> 新用户<a href="#" class="red">[免费注册]</a></li>
+	   <li class="hd_menu_tit zhuce" data-addclass="hd_menu_hover">欢迎光临本店！
+     
+      @if(!empty(session('homeuser')))  
+       <a class="red" href="{{asset('/home/user_center')}}/{{session('homeuser')->id}}">{{ session('homeuser')->username}}</a>
+       <a href="/home/logout" class="red">[退出]</a> 
+       @else
+     <a href="#" class="red">[请登录]</a> 
+     新用户<a href="#" class="red">[免费注册]</a>
+     </li>
+     @endif
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的订单</a></li> 
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">购物车(<b>0</b>)</a> </li>
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">联系我们</a></li>
@@ -40,7 +56,7 @@
 <!--logo和搜索样式-->
 <div id="header"  class="header">
   <div class="logo">
-  <a href="#"><img src="images/logo.png" /></a>
+  <a href="#"><img src="{{asset('images/logo.png')}}" /></a>
   <div class="phone">
    免费咨询热线:<span class="telephone">400-3454-343</span>
   </div>
@@ -115,20 +131,19 @@
   </div>
 </div>
 </div>
-<!--修改密码样式-->
+<!--用户中心-->
 <div class="user_style clearfix" id="user">
 <div class="user_title"><em></em>用户中心</div>
   <div class="clearfix user" >
-  <!--左侧菜单栏样式-->
-  <div class="user_left">
+    <div class="user_left">
       <div class="user_info">
-       <div class="Head_portrait"><img src="images/people.png"  width="80px" height="80px"/><!--头像区域--></div>
-       <div class="user_name">用户蜜甘草<a href="#">[个人资料]</a></div>
+      <div class="Head_portrait"><a href="{{asset('/home/user_mypic')}}/{{session('homeuser')->id}}"><img src="{{asset('uploads')}}/{{session('homeuser')->pic}}"  width="80px" height="80px"/></a><!--头像区域--></div>
+       <div class="user_name">{{ session('homeuser')->username}}</div>
       </div>
       <ul class="Section">
-       <li><a href="#"><em></em><span>我的特色馆</span></a></li>
-       <li><a href="#"><em></em><span>个人信息</span></a></li>
-       <li><a href="#"><em></em><span>修改密码</span></a></li>
+       <!-- <li><a href="#"><em></em><span>我的特色馆</span></a></li> -->
+       <li><a href="/home/user_info/{{session('homeuser')->id}}"><em></em><span>个人信息</span></a></li>
+       <li><a href="/home/user_Password"><em></em><span>修改密码</span></a></li>
        <li><a href="#"><em></em><span>我的订单</span></a></li>
        <li><a href="#"><em></em><span>我的评论</span></a></li>
        <li><a href="#"><em></em><span>我的积分</span></a></li>
@@ -136,30 +151,9 @@
        <li><a href="#"><em></em><span>收货地址管理</span></a></li>
       </ul>
     </div>
-    <!--右侧样式-->
-    <div class="right_style r_user_style user_right">
-      <div class="user_Borders">     
-       <div class="title_name">
-        <span class="name">修改密码</span>
-       </div>
-       <!--修改密码样式-->
-       <div class="about_user_info">
-        <form id="form1" name="form1" method="post" action="">   
-       <div class="user_layout">
-         <ul >
-          <li><label class="user_title_name">原密码：</label><input name="" type="password"  class="add_text"/><i>*</i></li>
-          <li><label class="user_title_name">新密码：</label><input name="" type="password"  class="add_text"/><i>*</i></li>
-          <li><label class="user_title_name">确认新密码：</label><input name="" type="password"  class="add_text"/><i>*</i></li>         
-         </ul>
-         <div class="operating_btn"><input name="name" type="submit" value="确认"  class="submit—btn"/></div>
-         </div>
-          </form>
-        
-       </div>
-      </div>
-    </div>
-  </div>
-</div>
+   @yield('content')
+  <!-- </div>
+</div> -->
 <div class="footerbox">
    <!--友情链接-->
        <div class="Links">

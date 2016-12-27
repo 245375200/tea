@@ -15,9 +15,11 @@ class AuthMiddleware
      */
     public function handle($request, Closure $next)
     {
+
         if(!session()->has('adminuser')){
             return redirect('/admin/login');
         }
+
         return $next($request);
     }
 }

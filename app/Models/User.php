@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-    //
-    // protected $table = 'user';		//指定绑定的表为user,否则默认绑定users表
+
 
     public function checkUser($request)
     {

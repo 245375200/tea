@@ -293,10 +293,10 @@ table.table thead .sorting_desc_disabled { background: url('../img/sort_desc_dis
     bottom: 20px;
     left: 20px;
 }
-.gritter-item-wrapper {
+/*.gritter-item-wrapper {
   position:relative;
   margin:0 0 10px 0;
-}
+}*/
 .gritter-top {
   display: none;
 }
@@ -305,24 +305,24 @@ table.table thead .sorting_desc_disabled { background: url('../img/sort_desc_dis
 }
 .gritter-item {
   display:block;
-  /*background:url('assets/img/gritter.png') no-repeat left -40px;*/
+  background:url('assets/img/gritter.png') no-repeat left -40px;
   background:#292A2F;
   color:#fff;
   padding:8px 11px;
   font-size: 11px;
 }
-.hover .gritter-item {
+/*.hover .gritter-item {
   background-position:right -40px;
-}
-.gritter-item p {
+}*/
+/*.gritter-item p {
   padding:0;
   margin:0;
   word-wrap:break-word;
-}
-.gritter-item a {
+}*/
+/*.gritter-item a {
   color: #26AEF2!important;
-}
-.gritter-close {
+}*/
+/*.gritter-close {
   cursor: pointer;
   display: block !important;
   height: 30px;
@@ -338,35 +338,35 @@ table.table thead .sorting_desc_disabled { background: url('../img/sort_desc_dis
 }
 .gritter-close:hover:before {
   color: #eee;
-}
-.gritter-title {
+}*/
+/*.gritter-title {
   font-size:14px;
   font-weight:bold;
   padding:0 0 7px 0;
   display:block;
   text-shadow:1px 1px 0 #000; /* Not supported by IE :( */
-}
-.gritter-image {
+}*/
+/*.gritter-image {
   width:48px;
   height:48px;
   float:left;
-}
-.gritter-with-image,
+}*/
+/*.gritter-with-image,
 .gritter-without-image {
   padding:0;
 }
 .gritter-with-image {
   width:220px;
   float:right;
-}
+}*/
 /* for the light (white) version of the gritter notice */
-.gritter-light .gritter-item,
+/*.gritter-light .gritter-item,
 .gritter-light .gritter-bottom,
 .gritter-light .gritter-top {
   background: #F4F4F4;
   color: #333;
   border: 1px solid #D8D8D8;
-
+*/
 }
 .gritter-light .gritter-close:before {
   color: #222;
@@ -374,10 +374,10 @@ table.table thead .sorting_desc_disabled { background: url('../img/sort_desc_dis
 .gritter-light .gritter-close:hover:before {
   color: #666;
 }
-.gritter-light .gritter-title {
+/*.gritter-light .gritter-title {
   text-shadow: none;
 }
-
+*/
 /* user side */
 .user_side{
   padding: 15px 15px;

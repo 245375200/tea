@@ -2,15 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Realm - Dashboard</title>
+    <title>网站后台管理系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Bluth Company">
     <link rel="shortcut icon" href="assets/ico/favicon.html">
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <link href="assets/css/theme.css" rel="stylesheet">
-    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
-    <link href="assets/css/alertify.css" rel="stylesheet">
-    <link href="http://fonts.useso.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/theme.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/alertify.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('http://fonts.useso.com/css?family=Open+Sans:400,700') }}" rel="stylesheet" type="text/css"> -->
     <link rel="Favicon Icon" href="favicon.ico">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -23,7 +23,7 @@
       <div class="navbar-inner">
         <div class="container-fluid">
           <div class="logo"> 
-            <img src="assets/img/logo.png" alt="Realm Admin Template">
+            <img src="{{ asset('assets/img/logo.png') }}" alt="Realm Admin Template">
           </div>
            <a class="btn btn-navbar visible-phone" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
@@ -38,11 +38,11 @@
 
           <div class="top-menu visible-desktop">
             <ul class="pull-left">
-              <li><a id="messages" data-notification="2" href="#"><i class="icon-envelope"></i> Messages</a></li>
-              <li><a id="notifications" data-notification="3" href="#"><i class="icon-globe"></i> Notifications</a></li>
+              <li><a href="#"><i class="icon-envelope"></i> Messages</a></li>
+              <li><a href="#"><i class="icon-globe"></i> Notifications</a></li>
             </ul>
             <ul class="pull-right">  
-              <li><a href="login.html"><i class="icon-off"></i> Logout</a></li>
+              <li><a href="{{ url('admin/logout') }}"><i class="icon-off"></i>退出</a></li>
             </ul>
           </div>
 
@@ -63,14 +63,14 @@
       <!-- Side menu -->
       <div class="sidebar-nav nav-collapse collapse">
         <div class="user_side clearfix">
-          <img src="assets/img/odinn.jpg" alt="Odinn god of Thunder">
-          <h5>Odinn</h5>
+          <img src="{{ asset('assets/img/odinn.jpg') }}" alt="Odinn god of Thunder">
+          <h5>admin</h5>
           <a href="#"><i class="icon-cog"></i> Settings</a>        
         </div>
         <div class="accordion" id="accordion2">
           <div class="accordion-group">
             <div class="accordion-heading">
-              <a class="accordion-toggle active b_F79999" href="index-2.html"><i class="icon-dashboard"></i> <span>首页</span></a>
+              <a class="accordion-toggle active b_F79999" href="{{ url('/admin') }}"><i class="icon-dashboard"></i> <span>首页</span></a>
             </div>
           </div>
           <div class="accordion-group">
@@ -79,26 +79,41 @@
             </div>
             <div id="collapse1" class="accordion-body collapse">
               <div class="accordion-inner">
-                <a class="accordion-toggle" href="ui_features.html"><i class="icon-star"></i>用户列表</a>
-                <a class="accordion-toggle" href="forms.html"><i class="icon-list-alt"></i>添加用户</a>
+                <a class="accordion-toggle" href="{{ url('admin/demo') }}"><i class="icon-star"></i>用户列表</a>
+                <a class="accordion-toggle" href="{{ url('admin/demo/create') }}"><i class="icon-list-alt"></i>添加用户</a>
               </div>
             </div>
           </div>
           <div class="accordion-group">
             <div class="accordion-heading">
-              <a class="accordion-toggle b_9FDDF6 collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse2"><i class="icon-reorder"></i> <span>Components</span></a>
+              <a class="accordion-toggle b_9FDDF6 collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapse2"><i class="icon-reorder"></i> <span>商品管理</span></a>
             </div>
             <div id="collapse2" class="accordion-body collapse">
               <div class="accordion-inner">
-                <a class="accordion-toggle" href="notifications.html"><i class="icon-rss"></i> Notifications</a>
-                <a class="accordion-toggle" href="calendar.html"><i class="icon-calendar"></i> Calendar</a>
-                <a class="accordion-toggle" href="gallery.html"><i class="icon-picture"></i> Gallery</a>
+                <a class="accordion-toggle" href="{{ url('admin/cates') }}"><i class="icon-rss"></i> 商品列表</a>
+                <a class="accordion-toggle" href="{{ url('admin/cates/create') }}"><i class="icon-calendar"></i> 添加商品</a>
               </div>
             </div>
           </div>
           <div class="accordion-group">
             <div class="accordion-heading">
-              <a class="accordion-toggle b_F6F1A2" href="tasks.html"><i class="icon-tasks"></i> <span>Tasks</span></a>
+              <a class="accordion-toggle b_9FDDF6 collapsed" data-toggle="collapse" data-parent="#accordion4" href="#collapse2"><i class="icon-reorder"></i> <span>轮播图管理</span></a>
+            </div>
+            <div id="collapse2" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <a class="accordion-toggle" href="{{ url('admin/figure') }}"><i class="icon-star"></i>轮播图列表</a>
+                <a class="accordion-toggle" href="{{ url('admin/figure/create') }}"><i class="icon-list-alt"></i>添加轮播图</a>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle b_9FDDF6 collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapse3"><i class="icon-reorder"></i> <span>评论管理</span></a>
+            </div>
+            <div id="collapse3" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <a class="accordion-toggle" href="{{ url('/comments') }}"><i class="icon-star"></i>评论列表</a>
+              </div>
             </div>
           </div>
           <div class="accordion-group">
@@ -113,17 +128,24 @@
           </div> 
           <div class="accordion-group">
             <div class="accordion-heading">
-              <a class="accordion-toggle b_F5C294" href="users.html"><i class="icon-user"></i> <span>Users</span></a>
+              <a class="accordion-toggle b_9FDDF6 collapsed" data-toggle="collapse" data-parent="#accordion5" href="#collapse5"><i class="icon-reorder"></i> <span>订单管理</span></a>
             </div>
-          </div>      
+            <div id="collapse5" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <a class="accordion-toggle" href="{{ url('admin/order') }}"><i class="icon-star"></i>订单列表</a>
+              </div>
+            </div>
+          </div> 
         </div>
       </div>
       <!-- /Side menu -->
 
       <!-- Main window -->
-      <section id="dashboard_page" class="main_container">
-          @yield('dashboard_page')
-      </section>
+      <div class="main_container" id="dashboard_page">
+        <section id="content" class="container">
+            @yield('content')
+        </section>
+      </div>
       <!-- /Main window -->
       
     </div><!--/.fluid-container-->
@@ -170,7 +192,7 @@
       </div>
       <div class="modal-body">
         <div class="clearfix">
-          <img src="assets/img/avatars/11.jpg" class="img-circle" style="float: left; width: 65px; margin-right: 20px;">
+          <img src="{{ asset('assets/img/avatars/11.jpg') }}" class="img-circle" style="float: left; width: 65px; margin-right: 20px;">
            <h3 style="margin:0">John</h3>
            <p class="muted">Marketing</p>
         </div>
@@ -189,21 +211,21 @@
 
 
 
-    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="assets/js/raphael-min.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.js"></script>
-    <script type="text/javascript" src='assets/js/sparkline.js'></script>
-    <script type="text/javascript" src='assets/js/morris.min.js'></script>
-    <script type="text/javascript" src="assets/js/jquery.dataTables.min.js"></script>   
-    <script type="text/javascript" src="assets/js/jquery.masonry.min.js"></script>   
-    <script type="text/javascript" src="assets/js/jquery.imagesloaded.min.js"></script>   
-    <script type="text/javascript" src="assets/js/jquery.facybox.js"></script>   
-    <script type="text/javascript" src="assets/js/jquery.alertify.min.js"></script> 
-    <script type="text/javascript" src="assets/js/jquery.knob.js"></script>
-    <script type='text/javascript' src='assets/js/fullcalendar.min.js'></script>
-    <script type='text/javascript' src='assets/js/jquery.gritter.min.js'></script>
-    <script type="text/javascript" src="assets/js/realm.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.slimscroll.min.js"></script>
+     <script type="text/javascript" src="{{ asset('assets/js/jquery.min.js') }}"></script>
+     <script type="text/javascript" src="{{ asset('assets/js/jquery-ui.min.js') }}"></script>
+     <script type="text/javascript" src="{{ asset('assets/js/raphael-min.js') }}"></script>
+     <script type="text/javascript" src="{{ asset('assets/js/bootstrap.js') }}"></script>
+     <script type="text/javascript" src="{{ asset('assets/js/sparkline.js') }}"></script>
+     <script type="text/javascript" src="{{ asset('assets/js/morris.min.js') }}"></script>
+     <script type="text/javascript" src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>   
+     <script type="text/javascript" src="{{ asset('assets/js/jquery.masonry.min.js') }}"></script>   
+     <script type="text/javascript" src="{{ asset('assets/js/jquery.imagesloaded.min.js') }}"></script>   
+     <script type="text/javascript" src="{{ asset('assets/js/jquery.facybox.js') }}"></script>   
+     <script type="text/javascript" src="{{ asset('assets/js/jquery.alertify.min.js') }}"></script> 
+     <script type="text/javascript" src="{{ asset('assets/js/jquery.knob.js') }}"></script>
+     <script type='text/javascript' src="{{ asset('assets/js/fullcalendar.min.js') }}"></script>
+     <script type='text/javascript' src="{{ asset('assets/js/jquery.gritter.min.js') }}"></script>
+     <script type="text/javascript" src="{{ asset('assets/js/realm.js') }}"></script>
+     <!-- // <script type="text/javascript" src="{{ asset('assets/js/jquery.slimscroll.min.js') }}"></script> -->
   </body>
 </html>

@@ -25,7 +25,7 @@ class CommentsController extends Controller
             $where['good_name'] = $good_name;
         }
         // 分页
-        $list = $db->paginate(5);
+        $list = $db->paginate(10);
     	// $list = DB::table('comments')->get();
     	return view('admin.comments.index',['list'=>$list,'where'=>$where]);
     }

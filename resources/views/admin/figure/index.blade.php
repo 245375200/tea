@@ -1,7 +1,7 @@
 @extends('admin.base.index')
 
 @section('content')
-	<div class="row-fluid" style="width:1013px;margin-top:50px;margin-left:10px">
+	<div class="row-fluid" style="width:1060px;margin-top:20px;margin-left:-18px">
           <div class="widget widget-padding span12">
             <div class="widget-header">
               <i class="icon-group"></i>
@@ -12,7 +12,7 @@
               <input type='hidden' name='_token' value='{{ csrf_token() }}'>
               <input type='hidden' name='_method' value='DELETE'>
             </form>  
-            <div class="widget-body">
+            <div class="widget-body" style="height:570px">
               <table id="users" class="table table-striped table-bordered dataTable">
                 <thead>
                   <tr>
@@ -27,8 +27,8 @@
                   @foreach ($list as $v)
                     <tr>
                       <td style="text-align:center;line-height:60px;">{{ $v->id }}</td>
-                      <td style="text-align:center;line-height:60px;">{{ $v->good_Gid }}</td>
-                      <td style="text-align:center;line-height:60px;"><img src="{{ asset('uploads')}}/{{ $v->pic }}" alt="" width="100px";></td>
+                      <td style="text-align:center;line-height:60px;">{{ $v->Gid }}</td>
+                      <td style="text-align:center;line-height:60px;"><img src="{{ asset('uploads')}}/{{ $v->pic }}" alt="" width="100px;"></td>
                       <td style="text-align:center;line-height:60px;">{{ $v->good_Gname }}</td>
                       <td style="text-align:center;line-height:60px;">
                         <a href="javascript:doDel({{ $v->id }})" class="btn btn-danger">删除</a>                        

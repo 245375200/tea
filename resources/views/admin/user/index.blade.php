@@ -1,7 +1,7 @@
 @extends('admin.base.index')
 
 @section('content')
-        <div class="row-fluid" style="width:1013px;margin-top:50px;margin-left:10px">
+        <div class="row-fluid" style="width:1060px;margin-top:8px;margin-left:-22px;">
           <div class="widget widget-padding span12">
             <div class="widget-header">
               <i class="icon-group"></i>
@@ -18,11 +18,16 @@
                 </div>
               </div>
             </div>
+            @if (session('msg'))
+              <div class="alert alert-success">
+                  {{ session('msg') }}
+              </div>
+            @endif
             <form action="{{ url('admin/demo')}}" method='post' name='myform'>
               <input type='hidden' name='_token' value='{{ csrf_token() }}'>
               <input type='hidden' name='_method' value='DELETE'>
             </form>  
-            <div class="widget-body">
+            <div class="widget-body" style="height:520px">
               <table id="users" class="table table-striped table-bordered dataTable">
                 <thead>
                   <tr>

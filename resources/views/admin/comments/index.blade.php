@@ -1,7 +1,7 @@
 @extends('admin.base.index')
 
 @section('content')
-    <div class="widget-header" style="margin-top:50px;width:1040px">
+    <div class="widget-header" style="margin-top:20px;width:1060px;margin-left:-18px">
               <i class="icon-group"></i>
               <h5>评论列表</h5>
               <div class="container-fluid">
@@ -19,7 +19,7 @@
               <input type='hidden' name='_token' value='{{ csrf_token() }}'>
               <input type='hidden' name='_method' value='DELETE'>
             </form>
-            <div class="widget-body" style="width:1040px;">
+            <div class="widget-body" style="width:1060px;margin-left:-18px;height:500px">
               <table id="users" class="table table-striped table-bordered dataTable">
                 <thead>
                   <tr>

@@ -34,8 +34,9 @@ Route::group(['prefix'=>'admin','middleware'=>'checkUser'],function(){
 	Route::resource('/cates','admin\CatesController');
     Route::get('/catesSon/{Gid}','admin\CatesController@createSon');
     Route::post('/catesSon','admin\CatesController@storeSon');
-    Route::get('/status/{Gid}/{status}','admin\CatesController@status');
+    Route::get('/status/{id}/{status}','admin\CatesController@status');
 });
+
 
 
 // 后台评论管理

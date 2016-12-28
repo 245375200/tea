@@ -24,7 +24,7 @@ class OrderController extends Controller
             $where['user'] = $user;
         }
         // 分页
-        $list = $db->paginate(5);
+        $list = $db->paginate(10);
     	// $list = DB::table('order')->get();
     	return view('admin.order.index',['list'=>$list,'where'=>$where]);
     }

@@ -7,6 +7,8 @@
               <i class="icon-group"></i>
               <h5>用户列表</h5>
               <div class="widget-buttons">
+              <!-- <a href="http://www.datatables.net/usage/" data-title="Documentation" class="tip" target="_blank"><i class="icon-external-link"></i></a> -->
+              <a href="#" data-title="Collapse" data-collapsed="false" class="tip collapse"><i class="icon-chevron-up"></i></a>
             </div>
             <div class="container-fluid">
               <div class="row-fluid" style="margin-left:15px;">
@@ -49,11 +51,11 @@
                       <td>{{ $v->sex ==1?"男":"女" }}</td>
                       <td>{{ $v->phone }}</td>
                       <td>{{ $v->email }}</td>
-                      <td>{{ $v->level == 0?'用户':'管理员' }}</td>
+                      <td>{{ $v->level == 0?"用户":"管理员" }}</td>
                       <td>{{ $v->status == 0?'正常':'锁定' }}</td>
                       <td>
                         <a href="{{ url('admin/demo').'/'.$v->id.'/edit' }}" class="btn btn-success">编辑</a>
-                        <a href="{{ url('admin/status').'/'.$v->id.'/'.$v->status }}" class="btn btn-success">{{ $v->status ==0?"锁定":"解锁" }}</a>
+                        <a href="{{ url('admin/demo1').'/'.$v->id.'/'.$v->status }}" class="btn btn-success">{{ $v->status ==0?"锁定":"解锁" }}</a>
                         <a href="javascript:doDel({{ $v->id }})" class="btn btn-danger">删除</a>                        
                       </td>
                     </tr>

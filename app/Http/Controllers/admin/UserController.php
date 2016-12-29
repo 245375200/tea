@@ -80,7 +80,7 @@ class UserController extends Controller
         $ud['status'] = $status == 1?'0':'1';
         $row = DB::table('users')->where('id',$id)->update($ud);
         if($row>0){
-            return redirect('admin/demo');
+            return redirect('/admin/demo');
         }
     }
 }

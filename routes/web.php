@@ -27,7 +27,7 @@ Route::group(['prefix'=>'admin','middleware'=>'checkUser'],function(){
 	Route::resource('/order','admin\OrderController');
 	// 后台用户管理
 	Route::resource('/demo','admin\UserController');
-	Route::get('/status/{id}/{status}','admin\UserController@status');
+	Route::get('/demo1/{id}/{status}','admin\UserController@status');
 	// 后台轮播图管理
 	Route::resource('/figure','admin\FigureController');
 	// 后台商品管理

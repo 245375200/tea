@@ -17,7 +17,7 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body style="background-image:url('images/s-4.jpg')" width="100px;">
+  <body style="background-image:url('images/s-4.jpg')">
     <div id="wrap">
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">

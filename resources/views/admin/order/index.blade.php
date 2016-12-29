@@ -19,7 +19,7 @@
               <input type='hidden' name='_token' value='{{ csrf_token() }}'>
               <input type='hidden' name='_method' value='DELETE'>
             </form>
-            <div class="widget-body" style="width:1060px;margin-left:-18px;height:500px">
+            <div class="widget-body" style="width:1060px;margin-left:-18px;height:600px">
               <table id="users" class="table table-striped table-bordered dataTable">
                 <thead>
                   <tr>

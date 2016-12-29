@@ -4,6 +4,7 @@
   <div class="widget-header" style="width:1060px;margin-left:-20px">
     <i class="icon-list-alt"></i><h5>添加用户</h5>
     <div class="widget-buttons">
+      <!-- <a href="http://www.datatables.net/usage/" data-title="Documentation" class="tip" target="_blank"><i class="icon-external-link"></i></a> -->
       <a href="#" data-title="Collapse" data-collapsed="false" class="tip collapse"><i class="icon-chevron-up"></i></a>
     </div>
   </div>

@@ -28,8 +28,8 @@
           <label class="control-label" style="margin-left:140px">性别</label>
             <div class="controls">
               <select tabindex="1" class="span4" name="sex" style="width:356px;margin-left:20px">
-                 <option value="{{ $users->sex }}">男</option>
-                 <option value="{{ $users->sex }}">女</option>
+                 <option value="1" {{ $users->sex == 1?'selected':'' }}>男</option>
+                 <option value="2" {{ $users->sex == 2?'selected':'' }}>女</option>
               </select>
            </div>
         </div> 
@@ -49,8 +49,8 @@
           <label class="control-label" style="margin-left:140px">权限</label>
             <div class="controls">
               <select tabindex="1" class="span4" name="level" style="width:356px;margin-left:20px;">
-                 <option value="{{ $users->level }}">用户</option>
-                 <option value="{{ $users->level }}">管理员</option>
+                 <option value="0" {{ $users->level == 0?'selected':'' }}>用户</option>
+                 <option value="1" {{ $users->level == 1?'selected':'' }}>管理员</option>
               </select>
            </div>
         </div>

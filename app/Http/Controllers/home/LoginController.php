@@ -23,6 +23,7 @@ class LoginController extends Controller
             if($mycode != $request->input('code')){
                 return back()->with('msg','验证码错误！');
             }
+             $name = $request->input('username');
         //实例化一个模型
     	$user = new User();
         //调用模型中的验证用户方法
@@ -30,7 +31,12 @@ class LoginController extends Controller
     	//根据验证结果处理
     	if($ob){
     		//如果都能通过，则把用户信息存储到session中
-			session(['homeuser'=>$ob]);
+          
+           $data = DB::table('users')->where('username',$name)->first();
+           //sdd($data);
+			session(['homeuser'=>$data]);
+          session()->pull('homeuser.password','default');
+           //dd(session('homeuser')->id);
             
 			//重定向到前台页面
 			return redirect('/');
@@ -43,7 +49,7 @@ class LoginController extends Controller
     {
         // 销毁session
         session()->forget('homeuser');
-        return redirect('home/login');
+        return redirect('/');
     }
 
     public function capch($tmp)

@@ -1,0 +1,255 @@
+@extends('home.base.help')
+
+@section('content')
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12" style="font-size:18px">
+			<div class="page-header">
+				<h1>
+					首页 <sub>帮助中心</sub>
+				</h1>
+			</div>
+			<div class="con_top">
+				顺丰快递
+			</div>
+			<p>
+				 <span>（款到发货满300元免运费,货到付款不包邮，运费客户自理，满300元包邮是指扣除优惠部分的实际支付金额超过300元方可享受包邮政策）</span>
+			</p>
+			<p>
+				<strong>顺丰快递</strong> —— 顺丰速运公司自1993年在广东顺德创立以来，目前全国范围内拥有自建营业网点2500多个（自建营业网点大量避免承包经营带来的丢件 损坏，派送态度恶劣等众多投诉），覆盖全国178个地级市和942个县级市，唯一拥有6架货运包机的民营快递公司，保障大家的货物第一时间寄送，为大家提供快速、准确、安全、优质的专业快递服务。<br /> 1）服务说明<br /> <strong>优点</strong>：送货速度快，价格便宜，服务较好，在可送达范围内是目前最快的快递公司。<br /> <strong>缺点</strong>：送货地区少，京广线上所有城市基本覆盖，偏远省市的覆盖率较低。<br /> “未妥投”说明：快递状态是"未妥投"的时候，并非完全是快递员投递失败，有可能是当日快递员需要投递货物过多，无法在当天全部投递完毕，您可耐心等待1～2天即可。<br /> <strong>必须填写详细地址</strong>：为确保大家的购买的商品能在第一时间收到，请您务必提供详细的收货地址，例如xx省XX市XX区XX镇XX街道XX号，因为收货地址不详细的话，快递公司无法收件。<br /> <strong>敏感地址无法送达</strong>：由于顺丰快递对政府机关单位（法院,警察局,部队,邮局,公安局,税务局,财政局,外交部,司法部,交通厅,审计局,军队,检察院,法院,海关,人大,政协,政府,监狱,看守所,戒毒所.）等敏感地址都是无法直接派送的，可能需要客户到派送点自提，请谅解。<br /> 解决方法：您可以在填写详细的路名和门牌号时，不填写工作单位名称，快递人员到门口届时电话通知您自己出来取货就可以啦。<br /> <strong>用户自取情况说明</strong>：如因超出派送范围而导致不能配送的情况下，顺丰快递会联系您需要去自取包裹的。<br /> 2）派送地区和时间
+			</p>
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<table>
+								<colgroup>
+									<col />
+									<col />
+								</colgroup>
+								<tbody>
+									<tr>
+										<td colspan="2">
+											普通快递和顺丰快递配送地区和时间表
+										</td>
+									</tr>
+									<tr>
+										<td>
+											区 域
+										</td>
+										<td>
+											派送时间
+										</td>
+									</tr>
+									<tr>
+										<td>
+											上海市
+										</td>
+										<td rowspan="3">
+											1--2日
+										</td>
+									</tr>
+									<tr>
+										<td>
+											江苏省
+										</td>
+									</tr>
+									<tr>
+										<td>
+											浙江省
+										</td>
+									</tr>
+									<tr>
+										<td>
+											福建省
+										</td>
+										<td rowspan="12">
+											2--3日
+										</td>
+									</tr>
+									<tr>
+										<td>
+											广东省
+										</td>
+									</tr>
+									<tr>
+										<td>
+											北京市
+										</td>
+									</tr>
+									<tr>
+										<td>
+											湖南省
+										</td>
+									</tr>
+									<tr>
+										<td>
+											江西省
+										</td>
+									</tr>
+									<tr>
+										<td>
+											安徽省
+										</td>
+									</tr>
+									<tr>
+										<td>
+											天津市
+										</td>
+									</tr>
+									<tr>
+										<td>
+											河北省
+										</td>
+									</tr>
+									<tr>
+										<td>
+											山东省
+										</td>
+									</tr>
+									<tr>
+										<td>
+											河南省
+										</td>
+									</tr>
+									<tr>
+										<td>
+											陕西省
+										</td>
+									</tr>
+									<tr>
+										<td>
+											山西省
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+						<td>
+							<table>
+								<colgroup>
+									<col />
+									<col />
+								</colgroup>
+								<tbody>
+									<tr>
+										<td>
+											四川省
+										</td>
+										<td rowspan="10">
+											3--4日
+										</td>
+									</tr>
+									<tr>
+										<td>
+											重庆市
+										</td>
+									</tr>
+									<tr>
+										<td>
+											辽宁省
+										</td>
+									</tr>
+									<tr>
+										<td>
+											吉林省
+										</td>
+									</tr>
+									<tr>
+										<td>
+											贵州省
+										</td>
+									</tr>
+									<tr>
+										<td>
+											黑龙江省
+										</td>
+									</tr>
+									<tr>
+										<td>
+											云南省
+										</td>
+									</tr>
+									<tr>
+										<td>
+											海南省
+										</td>
+									</tr>
+									<tr>
+										<td>
+											湖北省
+										</td>
+									</tr>
+									<tr>
+										<td>
+											广西壮族自治区
+										</td>
+									</tr>
+									<tr>
+										<td>
+											甘肃省
+										</td>
+										<td rowspan="4">
+											3--5日
+										</td>
+									</tr>
+									<tr>
+										<td>
+											宁夏回族自治区
+										</td>
+									</tr>
+									<tr>
+										<td>
+											青海省
+										</td>
+									</tr>
+									<tr>
+										<td>
+											内蒙古自治区
+										</td>
+									</tr>
+									<tr>
+										<td>
+											西藏自治区
+										</td>
+										<td rowspan="2">
+											3--5日
+										</td>
+									</tr>
+									<tr>
+										<td>
+											新疆维吾尔自治区
+										</td>
+									</tr>
+									<tr>
+										<td>
+											台湾省（超区加派送费）
+										</td>
+										<td rowspan="3">
+											4--6日
+										</td>
+									</tr>
+									<tr>
+										<td>
+											香港（超区加派送费）
+										</td>
+									</tr>
+									<tr>
+										<td>
+											澳门（超区加派送费）
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<p>
+				<br /> 3）地区查询<br /> 1. 顺丰快递可送范围查询，请<a href="http://www.sf-express.com/tabid/70/Default.aspx">[点击此进入查看]</a><br /> 2. 顺丰快递统一客服热线为4008-111-111，您也可以<a href="http://www.sf-express.com/tabid/69/Default.aspx">[点击此进入]</a>选择所在地区，查看顺丰各地应急热线。
+			</p>
+		</div>
+	</div>
+</div>
+@stop

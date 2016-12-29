@@ -46,16 +46,6 @@ class UsersController extends Controller
         }
     }
 
-    public function destroy($id)
-    {
-        $row = DB::table('users')->where('id',$id)->delete();
-        if($row>0){
-            return '删除成功';
-        }else{
-            return '删除失败';
-        }
-    }
-
    
     public function update(Request $request)
     { 
@@ -140,6 +130,47 @@ class UsersController extends Controller
                 }
             }
         }
+
+    }
+    public function address()
+    {   
+        $id = session('homeuser')->id;
+        $list=DB::table('addresses')->where('user_id',$id)->get();
+        return view('home.user_address',['list'=>$list]);
+
+    }
+
+    public function add(Request $request)
+    {
+
+       $data= $request->only('user_id','consignee','tel','province','city','district','address','postcode');
+        DB::table('addresses')->insertGetId($data);
+        $id = session('homeuser')->id;
+        $list=DB::table('addresses')->where('user_id',$id)->get();
+        return view('home.user_address',['list'=>$list]);
+    }
+
+    public function del($id)
+    {
+        DB::table('addresses')->where('id',$id)->delete();
+        return redirect('/home/user_address');
+
+    }
+
+    public function myComments()
+    {   
+        $id = session('homeuser')->id;
+        $list=DB::table('comments')->where('user_id',$id)->get();
+        return view('home.mycomments',['list'=>$list]);
+
+    }
+
+    public function delComments($id)
+    {   
+        DB::table('comments')->where('id',$id)->delete();
+        $id = session('homeuser')->id;
+        $list=DB::table('comments')->where('user_id',$id)->get();
+        return view('home.mycomments',['list'=>$list]);
 
     }
 } 

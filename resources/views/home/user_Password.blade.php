@@ -13,7 +13,7 @@
          <ul >
          <form  method="post" action="{{ url('/home/password') }}"> 
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input type="hidden" name="id" value="{{session()->get('homeuser.id')}}">
+            <input type="hidden" name="id" value="{{session('homeuser')->id}}">
           <li><label class="user_title_name">原密码：</label><input name="" type="password"  class="add_text"/><i>*</i></li>
           <li><label class="user_title_name">新密码：</label><input name="password" type="password"  class="add_text"/><i>*</i></li>
           <li><label class="user_title_name">确认新密码：</label><input name="rpassword" type="password"  class="add_text"/><i>*</i></li>         

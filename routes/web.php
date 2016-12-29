@@ -90,3 +90,29 @@ Route::resource('/home/findpass','home\PassController');//用了里面的index�
  Route::post('home/user_infoupdate','home\UsersController@infoupdate');
  Route::get('home/user_mypic/{id}','home\UsersController@userpic');
  Route::post('/home/mypic_upload','home\UsersController@mypic');
+ Route::get('/home/user_address','home\UsersController@address');
+ Route::post('/home/add_address','home\UsersController@add');
+ Route::get('/home/deladress/{id}','home\UsersController@del');
+ Route::get('/home/mycomments','home\UsersController@myComments');
+ Route::get('/home/delcomments/{id}','home\UsersController@delComments');
+//帮助
+//help模块
+Route::group(['prefix'=>'home'],function(){
+	//这是茶列表
+	Route::get('/help/kuaidi','home\HelpController@index');
+	Route::get('/help/shunfen','home\HelpController@shunfen');
+	Route::get('/help/xieyi','home\HelpController@xieyi');
+	Route::get('/help/jiaoyi','home\HelpController@jiaoyi');
+	Route::get('/help/wangshang','home\HelpController@wangshang');
+	Route::get('/help/yinhang','home\HelpController@yinhang');
+	Route::get('/help/chengnuo','home\HelpController@chengnuo');
+	Route::get('/help/yuanze','home\HelpController@yuanze');
+	
+});
+
+//前台用的搜索
+Route::resource('home/type','home\SearchController');
+
+Route::get('/home/Product_Detailed/{id}','home\SearchController@goodDetail');
+
+Route::get('home/search/{name?}','home\SearchController@goodSearch');

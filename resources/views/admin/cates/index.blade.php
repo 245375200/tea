@@ -12,7 +12,7 @@
           <a href="#" data-title="Collapse" data-collapsed="false" class="tip collapse"><i class="icon-chevron-up"></i></a>
       </div>
     </div>
-    <div class="widget-body" style="height:870px;">
+    <div class="widget-body" style="height:1130px;">
       @if (session('msg'))
           <div class="alert alert-success">
               {{ session('msg') }}
@@ -38,6 +38,7 @@
             <!-- <th style="text-align:center;">pid</th> -->
             <th style="text-align:center;">path</th>
             <th style="text-align:center;">详细</th>
+            <th style="text-align:center;">活动</th>
             <th style="text-align:center;">状态</th>
             <th style="text-align:center;">操作</th>
           </tr>
@@ -51,7 +52,13 @@
             <td style="text-align:center;">{{ $v->Gpice }}</td>
             <!-- <td style="text-align:center;">{{ $v->Gpid }}</td> -->
             <td style="text-align:center;">{{ $v->Gpath }}</td>
-            <td style="text-align:center;width:200px;">{{ $v->Gdetail }}</td>
+            <td style="text-align:center;width:180px;">{{ $v->Gdetail }}</td>
+            <td style="text-align:center;width:100px;">
+              <option value="0">{{ $v->level ==0?"正常商品":"" }}</option>
+              <option value="1">{{ $v->level ==1?"热销产品":"" }}</option>
+              <option value="2">{{ $v->level ==2?"新品推荐":"" }}</option>
+              <option value="3">{{ $v->level ==3?"限时促销":"" }}</option>
+            </td>
             <td style="text-align:center;">{{ $v->status ==0?"上架":"下架" }}</td>
             <td style="text-align:center;">
                 <a href="{{ url('admin/cates').'/'.$v->Gid }}/edit" class="btn btn-success">修改</a>
@@ -74,18 +81,17 @@
         </div>
       </div>
       <script type="text/javascript">
-              function doDel(Gid)
-              {
-                  if(confirm('确定要删除吗？')){
-                      var form = document.myform;
-                      form.action = '/admin/cates/'+Gid;
-                      form.submit()
-                  }
-              }
+        function doDel(Gid)
+        {
+            if(confirm('确定要删除吗？')){
+                var form = document.myform;
+                form.action = '/admin/cates/'+Gid;
+                form.submit()
+            }
+        }
       </script>
     </div> <!-- /widget-body -->
   </div> <!-- /widget -->
 </div> <!-- /row-fluid -->
-
 </div>
 @stop

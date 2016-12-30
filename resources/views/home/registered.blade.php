@@ -25,7 +25,7 @@
     <img src="{{asset('images/bg_03.png')}}" />
    </div>
    <div class="right_register">
-     <div class="register_Switching" id="register_Switching">
+     <div class="register_Switching" id="register_Switching" style="margin-left:100px;margin-top:40px">
        <div class="hd">
         <ul><li>用户注册</li></ul>
        </div>

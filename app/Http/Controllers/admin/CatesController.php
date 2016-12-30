@@ -32,13 +32,7 @@ class CatesController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $messages = [
-            'required' => ':attribute 的字段是必要的',
-        ];
-        $this->validate($request, [
-            'Gname' => 'required|unique:goodlist|max:16',
-        ],$messages);
+    {       
         $data = $request->except('_token');
         if($data['Gpid']==0){
             $data['Gpath'] ='0,';
@@ -115,7 +109,7 @@ class CatesController extends Controller
         }
         $row = DB::table('goodlist')->where('Gid',$id)->delete();
         if($row>0){
-            return redirect('/admin/cates')->with('msg','删除成功');
+            return redirect('/admin/cates');
         }
     }
 
@@ -127,7 +121,7 @@ class CatesController extends Controller
 
     public function update($id,Request $request)
     {
-        $data = $request->only('Gname','Gpice','Gpid','Gpic','Gimage','Gimage1','Gdetail');
+        $data = $request->only('Gname','Gpice','Gpid','Gpic','Gimage','Gimage1','Gdetail','level');
         /***************列表图********************/
         if ($request->hasFile('Gpic')) {
             if ($request->file('Gpic')->isValid()) {
@@ -187,7 +181,7 @@ class CatesController extends Controller
         $data['Gimage1'] = $picname;
         $row = DB::table('goodlist')->where('Gid',$id)->update($data);
         if($row>0){
-            return redirect('/admin/cates')->with('msg','修改成功');
+            return redirect('/admin/cates');
         }
     }
 
@@ -224,7 +218,7 @@ class CatesController extends Controller
         $id = DB::table('goodlist')->insertGetId($data);
         // dd($id);
         if($id>0){
-            return redirect('/admin/cates')->with('msg','添加子板块成功');
+            return redirect('/admin/cates');
         }
     }
 

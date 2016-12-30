@@ -24,7 +24,7 @@ class User extends Model
     	// 	return null;
     	// }
         if($ob){
-            if($level != '0'){
+            if($level != '0' && $status != '1'){
                  if($request->input('password') == $ob->password){
                     return $ob;
                 }

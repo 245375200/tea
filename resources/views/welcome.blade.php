@@ -9,6 +9,20 @@
 <script src="js/common_js.js" type="text/javascript"></script>
 <script src="js/footer.js" type="text/javascript"></script>
 <title>茶叶商城首页</title>
+  <style type="text/css">
+      ul,li{margin:0px; padding:0px;}
+      #did{
+        /*border:1px solid red;*/
+        height:125px;
+        width:194px;
+        overflow:hidden;
+        /*//一旦有超出部分隐藏之后就会出现滚动条 */
+      }
+      /*li{
+        padding-left:20px;
+      }*/
+    
+  </style>
 </head>
 
 <body>
@@ -53,17 +67,42 @@
         <a href="#">100以下</a><br/><a href="#">100-200</a><a href="#">200-400</a><a href="#">400-600</a><br/><a href="#">600-900</a><a href="#">1000以上</a>
 	</div>	
      <div class="Menu_list">	
-	    <div class="menu_title">推荐茶叶</div>
-        <ul class="recommend">
-         <li><a href="#" title="[2015年新茶]巴山雀舌毛尖茶新茶，含硒">[2015年新茶]巴山雀舌...</a></li>
-         <li><a href="#" title="[2015年新茶]巴山雀舌毛尖茶新茶，含硒">[2015年新茶]巴山雀舌...</a></li>
-         <li><a href="#" title="[2015年新茶]巴山雀舌毛尖茶新茶，含硒">[2015年新茶]巴山雀舌...</a></li>
-         <li><a href="#" title="[2015年新茶]巴山雀舌毛尖茶新茶，含硒">[2015年新茶]巴山雀舌...</a></li>
-         <li><a href="#" title="[2015年新茶]巴山雀舌毛尖茶新茶，含硒">[2015年新茶]巴山雀舌...</a></li>
-        </ul>
-	</div>	
+      <div class="menu_title">推荐茶叶</div>
+  	    <div class="menu_title" id="did">
+          <div id="item1">
+            <ul class="recommend">
+               <li><a href="#" title="[2017年新茶]巴山雀舌毛尖茶新茶，含硒">[2017年新茶]西湖龙井</a></li>
+               <li><a href="#" title="[2017年新茶]巴山雀舌毛尖茶新茶，含硒">[2017年新茶]台湾高山茶</a></li>
+               <li><a href="#" title="[2017年新茶]巴山雀舌毛尖茶新茶，含硒">[2017年新茶]黄山毛峰</a></li>
+               <li><a href="#" title="[2017年新茶]巴山雀舌毛尖茶新茶，含硒">[2017年新茶]大红袍</a></li>
+               <li><a href="#" title="[2017年新茶]巴山雀舌毛尖茶新茶，含硒">[2017年新茶]祁门红茶</a></li>
+            </ul>
+            </div>
+            <div id="item2"></div>
+        </div>
+        <script type="text/javascript">
+
+          var did = document.getElementById("did");
+          var item1 = document.getElementById("item1");
+          var item2 = document.getElementById("item2");
+
+          item2.innerHTML = item1.innerHTML;
+
+          var m=0;
+          // 实现滚动效果
+          setInterval(function (){
+            m++;
+            //实现无缝滚动
+            if(m>item1.offsetHeight){
+              m=0;
+            }
+            did.scrollTop = m;
+          },50);
+        </script>
+	   </div>	
 	</div>		
 	</div>
+
 	<!--菜单栏-->
 	<div class="Navigation" id="Navigation">
 		 <ul class="Navigation_name">
@@ -113,14 +152,14 @@
 			<div class="bd">
 				<ul>
 					<li><a href="#" target="_blank"><img src="images/ad-1.png" /></a></li>
-			        <li><a href="#" target="_blank"><img src="images/ad-3.jpg" /></a></li>
+			    <li><a href="#" target="_blank"><img src="images/ad-3.jpg" /></a></li>
 				</ul>
 			</div>
 			<a class="prev" href="javascript:void(0)"></a>
 			<a class="next" href="javascript:void(0)"></a>
 		</div>
 		<script type="text/javascript">
-		jQuery(".slideBox").slide({titCell:".hd ul",mainCell:".bd ul",autoPlay:true,autoPage:true,interTime:9000});
+		jQuery(".slideBox").slide({titCell:".hd ul",mainCell:".bd ul",autoPlay:true,autoPage:true,interTime:5000});
 		</script>
 	  </div>     
       </div>

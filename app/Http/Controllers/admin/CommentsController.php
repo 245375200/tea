@@ -12,6 +12,11 @@ class CommentsController extends Controller
     //
     public function index(Request $request)
     {
+        $lis = DB::table('comments')
+                ->join('goodlist','comments.id','=','goodlist.Gid')
+                ->join('users','comments.id','=','users.id')
+                ->select('comments.*','goodlist.Gname','users.username')
+                ->get();
         // 保存搜索的条件
         $where = [];
         // 实例化要操作的表

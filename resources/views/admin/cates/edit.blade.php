@@ -36,6 +36,17 @@
                                 <input name="Gdetail" class="span7"  type="text" value="{{ $cates->Gdetail }}">
                             </div>
                         </div>
+                        <div class="control-group">
+                            <label class="control-label" style="margin-left:150px">活动</label>
+                                <div class="controls">
+                                    <select tabindex="1" class="span4" name="level" style="width:400px;margin-left:20px">
+                                    <option value="0" {{ $cates->level == 0?'selected':'' }}>正常商品</option>
+                                    <option value="1" {{ $cates->level == 1?'selected':'' }}>热销产品</option>
+                                    <option value="2" {{ $cates->level == 2?'selected':'' }}>新品推荐</option>
+                                    <option value="3" {{ $cates->level == 3?'selected':'' }}>限时促销</option>
+                                  </select>
+                            </div>
+                        </div> 
                         <div class="control-group" style="margin-left:150px;">
                             <label class="control-label"></label>
                                 <div class="controls">

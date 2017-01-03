@@ -17,7 +17,7 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body style="background-image:url('images/s-4.jpg')">
     <div id="wrap">
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
@@ -35,12 +35,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-
           <div class="top-menu visible-desktop">
-            <ul class="pull-left">
-              <li><a href="#"><i class="icon-envelope"></i> Messages</a></li>
-              <li><a href="#"><i class="icon-globe"></i> Notifications</a></li>
-            </ul>
             <ul class="pull-right">  
               <li><a href="{{ url('admin/logout') }}"><i class="icon-off"></i>退出</a></li>
             </ul>
@@ -90,16 +85,16 @@
             </div>
             <div id="collapse2" class="accordion-body collapse">
               <div class="accordion-inner">
-                <a class="accordion-toggle" href="{{ url('admin/cates') }}"><i class="icon-rss"></i> 商品列表</a>
-                <a class="accordion-toggle" href="{{ url('admin/cates/create') }}"><i class="icon-calendar"></i> 添加商品</a>
+                <a class="accordion-toggle" href="{{ url('admin/cates') }}"><i class="icon-star"></i> 商品列表</a>
+                <a class="accordion-toggle" href="{{ url('admin/cates/create') }}"><i class="icon-list-alt"></i> 添加商品</a>
               </div>
             </div>
           </div>
           <div class="accordion-group">
             <div class="accordion-heading">
-              <a class="accordion-toggle b_9FDDF6 collapsed" data-toggle="collapse" data-parent="#accordion4" href="#collapse2"><i class="icon-reorder"></i> <span>轮播图管理</span></a>
+              <a class="accordion-toggle b_9FDDF3 collapsed" data-toggle="collapse" data-parent="#accordion4" href="#collapse3"><i class="icon-reorder"></i> <span>轮播图管理</span></a>
             </div>
-            <div id="collapse2" class="accordion-body collapse">
+            <div id="collapse3" class="accordion-body collapse">
               <div class="accordion-inner">
                 <a class="accordion-toggle" href="{{ url('admin/figure') }}"><i class="icon-star"></i>轮播图列表</a>
                 <a class="accordion-toggle" href="{{ url('admin/figure/create') }}"><i class="icon-list-alt"></i>添加轮播图</a>
@@ -108,34 +103,46 @@
           </div>
           <div class="accordion-group">
             <div class="accordion-heading">
-              <a class="accordion-toggle b_9FDDF6 collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapse3"><i class="icon-reorder"></i> <span>评论管理</span></a>
+              <a class="accordion-toggle b_9FDDF5 collapsed" data-toggle="collapse" data-parent="#accordion5" href="#collapse4"><i class="icon-reorder"></i> <span>评论管理</span></a>
             </div>
-            <div id="collapse3" class="accordion-body collapse">
+            <div id="collapse4" class="accordion-body collapse">
               <div class="accordion-inner">
                 <a class="accordion-toggle" href="{{ url('/comments') }}"><i class="icon-star"></i>评论列表</a>
               </div>
             </div>
-          </div>
-          <div class="accordion-group">
-            <div class="accordion-heading">
-              <a class="accordion-toggle b_C1F8A9" href="analytics.html"><i class="icon-bar-chart"></i> <span>Analytics</span></a>
-            </div>
           </div> 
           <div class="accordion-group">
             <div class="accordion-heading">
-              <a class="accordion-toggle b_9FDDF6" href="tickets.html"><i class="icon-bullhorn"></i> <span>Support Tickets</span></a>
-            </div>
-          </div> 
-          <div class="accordion-group">
-            <div class="accordion-heading">
-              <a class="accordion-toggle b_9FDDF6 collapsed" data-toggle="collapse" data-parent="#accordion5" href="#collapse5"><i class="icon-reorder"></i> <span>订单管理</span></a>
+              <a class="accordion-toggle b_9FDDF6 collapsed" data-toggle="collapse" data-parent="#accordion6" href="#collapse5"><i class="icon-reorder"></i> <span>订单管理</span></a>
             </div>
             <div id="collapse5" class="accordion-body collapse">
               <div class="accordion-inner">
                 <a class="accordion-toggle" href="{{ url('admin/order') }}"><i class="icon-star"></i>订单列表</a>
               </div>
             </div>
-          </div> 
+          </div>
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle b_9FDDF6 collapsed" data-toggle="collapse" data-parent="#accordion7" href="#collapse6"><i class="icon-reorder"></i> <span>友情链接</span></a>
+            </div>
+            <div id="collapse6" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <a class="accordion-toggle" href="{{ url('/Links') }}"><i class="icon-star"></i>链接列表</a>
+                <a class="accordion-toggle" href="{{ url('/Links/create') }}"><i class="icon-list-alt"></i>添加链接</a>
+              </div>
+            </div>
+          </div>  
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle b_9FDDF6 collapsed" data-toggle="collapse" data-parent="#accordion8" href="#collapse7"><i class="icon-reorder"></i> <span>配置信息</span></a>
+            </div>
+            <div id="collapse7" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <a class="accordion-toggle" href="{{ url('/Conf') }}"><i class="icon-rss"></i> 网站配置</a>
+                <a class="accordion-toggle" href="{{ url('/admin/upload') }}"><i class="icon-calendar"></i> 网站log</a>
+              </div>
+            </div>
+          </div>    
         </div>
       </div>
       <!-- /Side menu -->

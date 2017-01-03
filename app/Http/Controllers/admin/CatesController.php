@@ -14,6 +14,7 @@ class CatesController extends Controller
     //商品列表
     public function index(Request $request)
     {
+        $list1 = DB::select('select *,concat(Gpath,Gid) as pathid from goodlist order by pathid');
         $where = [];
         $db = DB::table('goodlist');
         if($request->has('Gname')){
@@ -21,7 +22,7 @@ class CatesController extends Controller
             $db->where('Gname','like',"%{$name}%");
             $where['Gname'] = $name;
         }
-        $list = $db->paginate(5);
+        $list = $db->paginate(10);
         return view('admin.cates.index',['list'=>$list,'where'=>$where]);
     }
 
@@ -31,21 +32,69 @@ class CatesController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $messages = [
-            'required' => ':attribute 的字段是必要的',
-        ];
-        $this->validate($request, [
-            'Gname' => 'required|unique:goodlist|max:16',
-        ],$messages);
+    {       
         $data = $request->except('_token');
-        // $Gpath = $request->input('Gpath');
-        // $Gpath = 0.',';
-        // $data['Gpath'] =" 0, ";
-        // $data = $data;
         if($data['Gpid']==0){
             $data['Gpath'] ='0,';
         }
+        /***************列表图********************/
+        if ($request->hasFile('Gpic')) {
+            if ($request->file('Gpic')->isValid()) {
+                $file = $request->file('Gpic');
+                $ext = $file->getClientOriginalExtension();
+                $picname = time().rand(1000,9999).'.'.$ext;
+                // dd($picname);
+                $file->move('./uploads/',$picname);
+                if($file->getError()>0){
+                    echo '上传失败';
+                }else{
+                    echo '上传成功';
+                }
+            }
+        }else{
+            echo "<script>alert('请选择图片');</script>";
+            return redirect('admin/cates/create');
+        } 
+        $data['Gpic'] = $picname;
+        /***************主图********************/
+        if ($request->hasFile('Gimage')) {
+            if ($request->file('Gimage')->isValid()) {
+                $file = $request->file('Gimage');
+                $ext = $file->getClientOriginalExtension();
+                $picname = time().rand(1000,9999).'.'.$ext;
+                // dd($picname);
+                $file->move('./uploads/',$picname);
+                if($file->getError()>0){
+                    echo '上传失败';
+                }else{
+                    echo '上传成功';
+                }
+            }
+        }else{
+            echo "<script>alert('请选择图片');</script>";
+            return redirect('admin/cates/create');
+        } 
+       
+        $data['Gimage'] = $picname;
+        /***************主图1********************/
+        if ($request->hasFile('Gimage1')) {
+            if ($request->file('Gimage1')->isValid()) {
+                $file = $request->file('Gimage1');
+                $ext = $file->getClientOriginalExtension();
+                $picname = time().rand(1000,9999).'.'.$ext;
+                // dd($picname);
+                $file->move('./uploads/',$picname);
+                if($file->getError()>0){
+                    echo '上传失败';
+                }else{
+                    echo '上传成功';
+                }
+            }
+        }else{
+            echo "<script>alert('请选择图片');</script>";
+            return redirect('admin/cates/create');
+        }      
+        $data['Gimage1'] = $picname;
         $id = DB::table('goodlist')->insertGetId($data);
         if($id>0){
             return redirect('admin/cates');
@@ -60,7 +109,7 @@ class CatesController extends Controller
         }
         $row = DB::table('goodlist')->where('Gid',$id)->delete();
         if($row>0){
-            return redirect('/admin/cates')->with('msg','删除成功');
+            return redirect('/admin/cates');
         }
     }
 
@@ -72,10 +121,67 @@ class CatesController extends Controller
 
     public function update($id,Request $request)
     {
-        $data = $request->only('Gname','Gpice','Gpid','Gpic','Gimage','Giamge1');
+        $data = $request->only('Gname','Gpice','Gpid','Gpic','Gimage','Gimage1','Gdetail','level');
+        /***************列表图********************/
+        if ($request->hasFile('Gpic')) {
+            if ($request->file('Gpic')->isValid()) {
+                $file = $request->file('Gpic');
+                $ext = $file->getClientOriginalExtension();
+                $picname = time().rand(1000,9999).'.'.$ext;
+                // dd($picname);
+                $file->move('./uploads/',$picname);
+                if($file->getError()>0){
+                    echo '上传失败';
+                }else{
+                    echo '上传成功';
+                }
+            }
+        }else{
+            echo "<script>alert('请选择图片');</script>";
+            return redirect('admin/cates');
+        }   
+        $data['Gpic'] = $picname;
+        /***************主图********************/
+        if ($request->hasFile('Gimage')) {
+            if ($request->file('Gimage')->isValid()) {
+                $file = $request->file('Gimage');
+                $ext = $file->getClientOriginalExtension();
+                $picname = time().rand(1000,9999).'.'.$ext;
+                // dd($picname);
+                $file->move('./uploads/',$picname);
+                if($file->getError()>0){
+                    echo '上传失败';
+                }else{
+                    echo '上传成功';
+                }
+            }
+        }else{
+            echo "<script>alert('请选择图片');</script>";
+            return redirect('admin/cates');
+        } 
+        $data['Gimage'] = $picname;
+        /***************主图1********************/
+        if ($request->hasFile('Gimage1')) {
+            if ($request->file('Gimage1')->isValid()) {
+                $file = $request->file('Gimage1');
+                $ext = $file->getClientOriginalExtension();
+                $picname = time().rand(1000,9999).'.'.$ext;
+                // dd($picname);
+                $file->move('./uploads/',$picname);
+                if($file->getError()>0){
+                    echo '上传失败';
+                }else{
+                    echo '上传成功';
+                }
+            }
+        }else{
+            echo "<script>alert('请选择图片');</script>";
+            return redirect('admin/cates');
+        }       
+        $data['Gimage1'] = $picname;
         $row = DB::table('goodlist')->where('Gid',$id)->update($data);
         if($row>0){
-            return redirect('/admin/cates')->with('msg','修改成功');
+            return redirect('/admin/cates');
         }
     }
 
@@ -91,35 +197,76 @@ class CatesController extends Controller
         $data = $request->except('_token');
         $par = DB::table('goodlist')->where('Gid',$request->input('Gpid'))->first();
         $data['Gpath'] = $par->Gpath.$data['Gpid'].',';
+        /***************列表图*****************/
+        if ($request->hasFile('Gpic')) {
+            if ($request->file('Gpic')->isValid()) {
+                $file = $request->file('Gpic');
+                $ext = $file->getClientOriginalExtension();
+                $picname = time().rand(1000,9999).'.'.$ext;
+                $file->move('./uploads/',$picname);
+                if($file->getError()>0){
+                    echo '上传失败';
+                }else{
+                    echo '上传成功';
+                }
+            }
+        }else{
+            echo "<script>alert('请选择图片');</script>";
+            return redirect('admin/cates');
+        }         
+        $data['Gpic'] = $picname;
+         /***************主图********************/
+        if ($request->hasFile('Gimage')) {
+            if ($request->file('Gimage')->isValid()) {
+                $file = $request->file('Gimage');
+                $ext = $file->getClientOriginalExtension();
+                $picname = time().rand(1000,9999).'.'.$ext;
+                // dd($picname);
+                $file->move('./uploads/',$picname);
+                if($file->getError()>0){
+                    echo '上传失败';
+                }else{
+                    echo '上传成功';
+                }
+            }
+        }else{
+            echo "<script>alert('请选择图片');</script>";
+            return redirect('admin/cates/create');
+        }        
+        $data['Gimage'] = $picname;
+        /***************主图1********************/
+        if ($request->hasFile('Gimage1')) {
+            if ($request->file('Gimage1')->isValid()) {
+                $file = $request->file('Gimage1');
+                $ext = $file->getClientOriginalExtension();
+                $picname = time().rand(1000,9999).'.'.$ext;
+                // dd($picname);
+                $file->move('./uploads/',$picname);
+                if($file->getError()>0){
+                    echo '上传失败';
+                }else{
+                    echo '上传成功';
+                }
+            }
+        }else{
+            echo "<script>alert('请选择图片');</script>";
+            return redirect('admin/cates/create');
+        }      
+        $data['Gimage1'] = $picname;
+        // dd($data);
         $id = DB::table('goodlist')->insertGetId($data);
+        // dd($id);
         if($id>0){
-            return redirect('/admin/cates')->with('msg','添加子类别成功');
+            return redirect('/admin/cates');
         }
     }
 
     public function status($id,$status)
-    {
-        // $status=$_GET['status']=='0'?'1':'0';
-        // $sql="update users set status='{$status}' where id='{$_GET["id"]}'";
-        // $result=mysqli_query($link,$sql);
-            $ud['status'] = $status == '1'?'0':'1';
-            $row = DB::table('goodlist')->where('Gid',$id)->update($ud);
-            if($row>0){
-                return redirect('/admin/cates');
-            }
-        // return view('cates.cates');
+    {  
+        $ud['status'] = $status == 1?'0':'1';
+        $row = DB::table('goodlist')->where('Gid',$id)->update($ud);
+        if($row>0){
+            return redirect('/admin/cates');
+        }
     }
-    // public function show(Request $request)
-    // {
-    //     if($request->has('pid')){
-    //         $pid = $request->input('pid');
-    //         if($pid!=0){
-    //             $db = DB::table('cates')->where('pid',$pid);
-    //             return view('');
-    //         }else{
-    //             return view('cates.cates',['list'=>$list]);
-    //         }
-    //     }
-    //
-    // }
 }

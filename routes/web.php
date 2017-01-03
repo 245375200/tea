@@ -25,15 +25,16 @@ Route::group(['prefix'=>'admin','middleware'=>'checkUser'],function(){
 	Route::resource('/order','admin\OrderController');
 	// 后台用户管理
 	Route::resource('/demo','admin\UserController');
-	Route::get('/status/{id}/{status}','admin\UserController@status');
+	Route::get('/demo1/{id}/{status}','admin\UserController@status');
 	// 后台轮播图管理
 	Route::resource('/figure','admin\FigureController');
 	// 后台商品管理
 	Route::resource('/cates','admin\CatesController');
     Route::get('/catesSon/{Gid}','admin\CatesController@createSon');
     Route::post('/catesSon','admin\CatesController@storeSon');
-    Route::get('/status/{Gid}/{status}','admin\CatesController@status');
+    Route::get('/status/{id}/{status}','admin\CatesController@status');
 });
+
 
 
 // 后台评论管理
@@ -74,7 +75,7 @@ Route::get('/capch/{tmp}','home\LoginController@capch');
 Route::post('home/login','home\LoginController@dologin');
 
 // 前台找回密码
- Route::post('/home/Fpass','home\PassController@findPass');
+Route::post('/home/Fpass','home\PassController@findPass');
 
 Route::resource('/home/findpass','home\PassController');//用了里面的index方法
 
@@ -115,6 +116,7 @@ Route::get('/home/Product_Detailed/{id}','home\SearchController@goodDetail');
 
 Route::get('home/search/{name?}','home\SearchController@goodSearch');
 
+
 //前台的购物车模块
 Route::post('/addToCart/post','home\CartController@addCart');
 
@@ -122,4 +124,29 @@ Route::post('/addToCart/post','home\CartController@addCart');
 Route::get('home/mycarts','home\CartController@getCart');
 Route::get('/delToCart/get','home\CartController@delMyCart');
 
+
+
+//网站配置路由
+Route::resource('/Conf','admin\ConfController');
+//Route::get('admin/conf','admin\ConfController@index');
+Route::resource('/Links','admin\LinkController');
+
+
+Route::any('/file/index', 'FileEntryController@index');
+Route::post('/file/add', 'FileEntryController@add');
+
+
+Route::get('admin/upload','admin\UploadController@index');
+Route::post('admin/upload','admin\UploadController@doUpload');
+
+//特效模块
+Route::group(['prefix'=>'home'],function(){	
+	Route::get('/texiao/wulongcha','home\TexiaoController@wulongcha');
+	Route::get('/texiao/dahongpao','home\TexiaoController@dahongpao');
+	Route::get('/texiao/puer','home\TexiaoController@puer');
+	Route::get('/texiao/wulong','home\TexiaoController@wulong');
+	Route::get('/texiao/lvcha','home\TexiaoController@lvcha');
+	Route::get('/texiao/tieguanyin','home\TexiaoController@tieguanyin');
+	Route::get('/texiao/hongcha','home\TexiaoController@hongcha');
+});
 

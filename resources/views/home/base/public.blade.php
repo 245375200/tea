@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -89,11 +88,11 @@
      <div class="Menu_list">	
 	    <div class="menu_title">推荐茶叶</div>
         <ul class="recommend">
-         <li><a href="#" title="[2015年新茶]巴山雀舌毛尖茶新茶，含硒">[2015年新茶]巴山雀舌...</a></li>
-         <li><a href="#" title="[2015年新茶]巴山雀舌毛尖茶新茶，含硒">[2015年新茶]巴山雀舌...</a></li>
-         <li><a href="#" title="[2015年新茶]巴山雀舌毛尖茶新茶，含硒">[2015年新茶]巴山雀舌...</a></li>
-         <li><a href="#" title="[2015年新茶]巴山雀舌毛尖茶新茶，含硒">[2015年新茶]巴山雀舌...</a></li>
-         <li><a href="#" title="[2015年新茶]巴山雀舌毛尖茶新茶，含硒">[2015年新茶]巴山雀舌...</a></li>
+         <li><a href="#" title="[2017年新茶]巴山雀舌毛尖茶新茶，含硒">[2017年新茶]西湖龙井</a></li>
+         <li><a href="#" title="[2017年新茶]巴山雀舌毛尖茶新茶，含硒">[2017年新茶]台湾高山茶</a></li>
+         <li><a href="#" title="[2017年新茶]巴山雀舌毛尖茶新茶，含硒">[2017年新茶]黄山毛峰</a></li>
+         <li><a href="#" title="[2017年新茶]巴山雀舌毛尖茶新茶，含硒">[2017年新茶]大红袍</a></li>
+         <li><a href="#" title="[2017年新茶]巴山雀舌毛尖茶新茶，含硒">[2017年新茶]祁门红茶</a></li>
         </ul>
 	</div>	
 	</div>		

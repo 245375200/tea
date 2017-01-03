@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 use DB;
 use App\models\User;
 
-
 class LoginController extends Controller
 {
     //

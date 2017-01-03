@@ -11,6 +11,11 @@ class OrderController extends Controller
 {
     public function index(Request $request)
     {
+        $lis = DB::table('order')
+                ->join('users','order.id','=','users.id')
+                ->join('addresses','order.id','=','addresses.id')
+                ->select('order.*','users.username','addresses.province','addresses.city','addresses.district','addresses.address')
+                ->get();
     	// 保存搜索的条件
         $where = [];
         // 实例化要操作的表
@@ -24,7 +29,7 @@ class OrderController extends Controller
             $where['user'] = $user;
         }
         // 分页
-        $list = $db->paginate(5);
+        $list = $db->paginate(10);
     	// $list = DB::table('order')->get();
     	return view('admin.order.index',['list'=>$list,'where'=>$where]);
     }

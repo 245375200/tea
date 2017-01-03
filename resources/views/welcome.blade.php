@@ -9,6 +9,20 @@
 <script src="js/common_js.js" type="text/javascript"></script>
 <script src="js/footer.js" type="text/javascript"></script>
 <title>茶叶商城首页</title>
+  <style type="text/css">
+      ul,li{margin:0px; padding:0px;}
+      #did{
+        /*border:1px solid red;*/
+        height:125px;
+        width:194px;
+        overflow:hidden;
+        /*//一旦有超出部分隐藏之后就会出现滚动条 */
+      }
+      /*li{
+        padding-left:20px;
+      }*/
+    
+  </style>
 </head>
 
 <body>
@@ -64,8 +78,10 @@
     
   </style>	
      <div class="Menu_list">	
-	    <div class="menu_title">推荐茶叶</div>
-        <div class="menu_title" id="did">
+
+      <div class="menu_title">推荐茶叶</div>
+  	    <div class="menu_title" id="did">
+
           <div id="item1">
             <ul class="recommend">
                <li><a href="#" title="[2017年新茶]巴山雀舌毛尖茶新茶，含硒">[2017年新茶]西湖龙井</a></li>
@@ -97,9 +113,14 @@
           },50);
         </script>
 
+
 	</div>	
+
+	
+
 	</div>		
 	</div>
+
 	<!--菜单栏-->
 	<div class="Navigation" id="Navigation">
 		 <ul class="Navigation_name">
@@ -135,16 +156,20 @@
 			</div>
 			<div class="bd">
 				<ul>
+
         @foreach($list4 as $v)
 					<li><a href="/home/Product_Detailed/{{$v->Gid}}" target="_blank"><img src="{{asset('/uploads')}}/{{$v->pic}}" /></a></li>
         @endforeach
+				
 				</ul>
 			</div>
 			<a class="prev" href="javascript:void(0)"></a>
 			<a class="next" href="javascript:void(0)"></a>
 		</div>
 		<script type="text/javascript">
-		jQuery(".slideBox").slide({titCell:".hd ul",mainCell:".bd ul",autoPlay:true,autoPage:true,interTime:2000});
+
+		jQuery(".slideBox").slide({titCell:".hd ul",mainCell:".bd ul",autoPlay:true,autoPage:true,interTime:5000});
+
 		</script>
 	  </div>     
       </div>

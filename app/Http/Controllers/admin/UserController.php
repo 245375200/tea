@@ -25,7 +25,7 @@ class UserController extends Controller
     		$where['username'] = $username;
     	}
     	// 分页
-    	$list = $db->paginate(5);
+    	$list = $db->paginate(10);
     	return view('admin.user.index',['list'=>$list,'where'=>$where]);
     }
 
@@ -36,10 +36,19 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $messages = [
+            'required' => ':attribute 输入格式不正确',
+        ];
+        $this->validate($request, [
+            'username' => 'required|unique:users|max:16',
+            'password' => 'required|max:20|min:3',
+            'phone' => 'required|numeric|digits:11',
+            'email' => 'required|email',
+        ],$messages);
     	$data = $request->except('_token');
     	$id = DB::table('users')->insertGetId($data);
     	if($id>0){
-    		return redirect('admin/demo');
+    		return redirect('admin/demo')->with('msg','添加成功');
     	}
     }
 
@@ -59,7 +68,7 @@ class UserController extends Controller
 
     public function update($id,Request $request)
     {
-    	$data = $request->only('username','phone','email','level');
+    	$data = $request->only('username','password','sex','phone','email','level');
     	$row = DB::table('users')->where('id',$id)->update($data);
     	if($row>0){
     		return redirect('admin/demo');
@@ -71,7 +80,7 @@ class UserController extends Controller
         $ud['status'] = $status == 1?'0':'1';
         $row = DB::table('users')->where('id',$id)->update($ud);
         if($row>0){
-            return redirect('admin/demo');
+            return redirect('/admin/demo');
         }
     }
 }

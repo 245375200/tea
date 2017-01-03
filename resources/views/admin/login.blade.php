@@ -31,12 +31,12 @@
 	    <div class="form clearfix">
 	    <br/>
 	    	<h3>
-	    	 @if (session('msg'))
-                        {{ session('msg') }}
-                    @else
-                      Hello Tea!
-             @endif	
-             <h3>
+	    	@if (session('msg'))
+                {{ session('msg') }}
+            @else
+              Hello Tea!
+            @endif	
+            <h3>
 	     <div class="item item-fore1"><label for="loginname" class="login-label name-label"></label><input name="username" type="text"  class="text" placeholder="请输入用户"/>
 		 </div>
 		 <br>

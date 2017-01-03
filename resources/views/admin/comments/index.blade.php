@@ -1,13 +1,13 @@
 @extends('admin.base.index')
 
 @section('content')
-    <div class="widget-header" style="margin-top:50px;width:1040px">
+    <div class="widget-header" style="margin-top:20px;width:1060px;margin-left:-22px">
               <i class="icon-group"></i>
               <h5>评论列表</h5>
               <div class="container-fluid">
               <div class="row-fluid">
                 <div class="span12">
-                  <form class="form-search" method="get" action="/comments"  style="margin-left:20px">
+                  <form class="form-search" method="get" action="/comments"  style="margin-left:20px;margin-top:-10px;">
                     <input class="input-medium search-query" type="text" name="good_name" />
                     <button type="submit" class="btn">搜索</button>
                   </form>
@@ -19,7 +19,7 @@
               <input type='hidden' name='_token' value='{{ csrf_token() }}'>
               <input type='hidden' name='_method' value='DELETE'>
             </form>
-            <div class="widget-body" style="width:1040px;">
+            <div class="widget-body" style="width:1060px;margin-left:-22px;height:670px">
               <table id="users" class="table table-striped table-bordered dataTable">
                 <thead>
                   <tr>

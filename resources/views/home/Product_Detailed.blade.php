@@ -77,9 +77,41 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 		 <div class="P_Quantity">剩余：50000件</div>        
         </dd>
 	  <dd>
-	    <div class="wrap_btn"> <a href="javascript:addToCart_bak(92)" class="wrap_btn1" title="加入购物车"></a> 
+	    <div class="wrap_btn"> <a href="javascript:addToCart({{$list->Gid}})" class="wrap_btn1" title="加入购物车"></a> 
 		  <a href="javascript:addToCart(92)" class="wrap_btn2" title="立即购买"></a> </div>
 		  </dd>
+      <script type="text/javascript">
+
+       
+   function addToCart(id){
+       var num = $("input[name = 'num']").val();        console.log(num);
+        $.ajax({
+          url:'/addToCart/post',
+          async:false,        //是否异步
+          type:'post',        //请求方式
+          data:{Gid:id,num:num},       //发送的数据
+          headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+          dataType:'json',      //响应的数据类型
+          error:function()      //失败时回调函数
+          {
+            alert('添加失败');
+          },
+          success:function(data)    //成功时回调函数
+          {
+            
+            if(data>0){
+              alert('添加成功');
+            }else{
+              alert('添加失败');
+            }
+          }
+        });
+
+    }
+
+      </script>
 	  </dl>
 	  </div>
 	  <div class="Guarantee clearfix">

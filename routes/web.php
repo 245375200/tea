@@ -10,9 +10,7 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'home\FrontController@index');
 // 定义后台不登录不能进入后台首页
 Route::get('/admin/login','admin\LoginController@index');
 Route::post('/admin/login','admin\LoginController@dologin');
@@ -116,3 +114,12 @@ Route::resource('home/type','home\SearchController');
 Route::get('/home/Product_Detailed/{id}','home\SearchController@goodDetail');
 
 Route::get('home/search/{name?}','home\SearchController@goodSearch');
+
+//前台的购物车模块
+Route::post('/addToCart/post','home\CartController@addCart');
+
+//我的购物车
+Route::get('home/mycarts','home\CartController@getCart');
+Route::get('/delToCart/get','home\CartController@delMyCart');
+
+

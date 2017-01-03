@@ -23,7 +23,10 @@ class SearchController extends Controller
             // 获取要搜索的name字段的值
             $name = $request->input('name');
             //添加where模糊匹配条件
-            $db->where('Gname','like',"%{$name}%");
+            $db->where([
+                ['Gname','like',"%{$name}%"],
+                ['Gpid','>',0]
+                ]);
             $where['name'] = $name;
         }
         // 分页
@@ -48,7 +51,10 @@ class SearchController extends Controller
         $db = DB::table('goodlist');
         
             //添加where模糊匹配条件
-        $db->where('Gname','like',"%{$name}%");
+        $db->where([
+            ['Gname','like',"%{$name}%"],
+            ['Gpid','>',0]
+            ]);
         $where['name'] = $name;
         // 分页
         $list = $db->paginate(10);

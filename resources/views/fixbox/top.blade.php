@@ -15,7 +15,7 @@
       
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">
        @endif我的订单</a></li> 
-	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="/home/shopping_cart">购物车(<b>0</b>)</a> </li>
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="{{asset('home/mycarts')}}">购物车</a> </li>
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">联系我们</a></li>
 	   <li class="hd_menu_tit list_name" data-addclass="hd_menu_hover"><a href="#" class="hd_menu">客户服务</a>
 	    <div class="hd_menu_list">

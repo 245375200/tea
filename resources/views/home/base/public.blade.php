@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="{{asset('css/css.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('css/common.css')}}" rel="stylesheet" type="text/css" />
@@ -15,6 +16,8 @@
 <link href="{{asset('css/show.css')}}" rel="stylesheet" type="text/css" />
 <script src="{{asset('js/jqzoom.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/jquery.spinner.js')}}"></script>
+<link rel="stylesheet" href="{{asset('css/style.css')}}"/>
+<script type="text/javascript" src="{{asset('js/demo.js')}}"></script>
 <title>用户中心</title>
 </head>
 
@@ -36,7 +39,7 @@
      </li>
      @endif
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的订单</a></li> 
-	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">购物车(<b>0</b>)</a> </li>
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="{{asset('home/mycarts')}}">购物车</a> </li>
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">联系我们</a></li>
 	   <li class="hd_menu_tit list_name" data-addclass="hd_menu_hover"><a href="#" class="hd_menu">客户服务</a>
 	    <div class="hd_menu_list">
@@ -110,14 +113,14 @@
     <!--购物车-->	
     
      <div class="hd_Shopping_list" id="Shopping_list">
-   <div class="s_cart"><em></em><a href="#">我的购物车</a> <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">0</i></div>
-   <div class="dorpdown-layer">
-    <div class="spacer"></div>
+   <div class="s_cart"><em></em><a href="{{asset('home/mycarts')}}">我的购物车</a> <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount"></i></div>
+  <!--  <div class="dorpdown-layer">
+    <div class="spacer"></div> -->
 	 <!--<div class="prompt"></div><div class="nogoods"><b></b>购物车中还没有商品，赶紧选购吧！</div>-->
-	 <ul class="p_s_list">	   
+	 <!-- <ul class="p_s_list">	   
 		<li>
 		    <div class="img"><img src="images/tianma.png"></div>
-		    <div class="content"><p><a href="#">产品名称</a></p><p>颜色分类:紫花8255尺码:XL</p></div>
+		    <div class="content"><p><a href="#">产品名称</a></p></div>
 			<div class="Operations">
 			<p class="Price">￥55.00</p>
 			<p><a href="#">删除</a></p></div>
@@ -127,7 +130,7 @@
 	 <div class="p-total">共<b>1</b>件商品　共计<strong>￥ 515.00</strong></div>
 	  <a href="#" title="去购物车结算" id="btn-payforgoods" class="Shopping">去购物车结算</a>
 	 </div>	 
-   </div>	
+   </div>	 -->
   </div>
 </div>
 </div>

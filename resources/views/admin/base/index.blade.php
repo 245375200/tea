@@ -120,7 +120,29 @@
                 <a class="accordion-toggle" href="{{ url('admin/order') }}"><i class="icon-star"></i>订单列表</a>
               </div>
             </div>
+          </div>
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle b_9FDDF6 collapsed" data-toggle="collapse" data-parent="#accordion7" href="#collapse6"><i class="icon-reorder"></i> <span>友情链接</span></a>
+            </div>
+            <div id="collapse6" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <a class="accordion-toggle" href="{{ url('/Links') }}"><i class="icon-star"></i>链接列表</a>
+                <a class="accordion-toggle" href="{{ url('/Links/create') }}"><i class="icon-list-alt"></i>添加链接</a>
+              </div>
+            </div>
           </div>  
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle b_9FDDF6 collapsed" data-toggle="collapse" data-parent="#accordion8" href="#collapse7"><i class="icon-reorder"></i> <span>配置信息</span></a>
+            </div>
+            <div id="collapse7" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <a class="accordion-toggle" href="{{ url('/Conf') }}"><i class="icon-rss"></i> 网站配置</a>
+                <a class="accordion-toggle" href="{{ url('/admin/upload') }}"><i class="icon-calendar"></i> 网站log</a>
+              </div>
+            </div>
+          </div>    
         </div>
       </div>
       <!-- /Side menu -->

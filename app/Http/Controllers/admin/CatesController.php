@@ -197,6 +197,7 @@ class CatesController extends Controller
         $data = $request->except('_token');
         $par = DB::table('goodlist')->where('Gid',$request->input('Gpid'))->first();
         $data['Gpath'] = $par->Gpath.$data['Gpid'].',';
+        /***************列表图*****************/
         if ($request->hasFile('Gpic')) {
             if ($request->file('Gpic')->isValid()) {
                 $file = $request->file('Gpic');
@@ -214,6 +215,44 @@ class CatesController extends Controller
             return redirect('admin/cates');
         }         
         $data['Gpic'] = $picname;
+         /***************主图********************/
+        if ($request->hasFile('Gimage')) {
+            if ($request->file('Gimage')->isValid()) {
+                $file = $request->file('Gimage');
+                $ext = $file->getClientOriginalExtension();
+                $picname = time().rand(1000,9999).'.'.$ext;
+                // dd($picname);
+                $file->move('./uploads/',$picname);
+                if($file->getError()>0){
+                    echo '上传失败';
+                }else{
+                    echo '上传成功';
+                }
+            }
+        }else{
+            echo "<script>alert('请选择图片');</script>";
+            return redirect('admin/cates/create');
+        }        
+        $data['Gimage'] = $picname;
+        /***************主图1********************/
+        if ($request->hasFile('Gimage1')) {
+            if ($request->file('Gimage1')->isValid()) {
+                $file = $request->file('Gimage1');
+                $ext = $file->getClientOriginalExtension();
+                $picname = time().rand(1000,9999).'.'.$ext;
+                // dd($picname);
+                $file->move('./uploads/',$picname);
+                if($file->getError()>0){
+                    echo '上传失败';
+                }else{
+                    echo '上传成功';
+                }
+            }
+        }else{
+            echo "<script>alert('请选择图片');</script>";
+            return redirect('admin/cates/create');
+        }      
+        $data['Gimage1'] = $picname;
         // dd($data);
         $id = DB::table('goodlist')->insertGetId($data);
         // dd($id);

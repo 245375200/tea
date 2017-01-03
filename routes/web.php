@@ -77,7 +77,7 @@ Route::get('/capch/{tmp}','home\LoginController@capch');
 Route::post('home/login','home\LoginController@dologin');
 
 // 前台找回密码
- Route::post('/home/Fpass','home\PassController@findPass');
+Route::post('/home/Fpass','home\PassController@findPass');
 
 Route::resource('/home/findpass','home\PassController');//用了里面的index方法
 
@@ -117,3 +117,27 @@ Route::resource('home/type','home\SearchController');
 Route::get('/home/Product_Detailed/{id}','home\SearchController@goodDetail');
 
 Route::get('home/search/{name?}','home\SearchController@goodSearch');
+
+//网站配置路由
+Route::resource('/Conf','admin\ConfController');
+//Route::get('admin/conf','admin\ConfController@index');
+Route::resource('/Links','admin\LinkController');
+
+
+Route::any('/file/index', 'FileEntryController@index');
+Route::post('/file/add', 'FileEntryController@add');
+
+
+Route::get('admin/upload','admin\UploadController@index');
+Route::post('admin/upload','admin\UploadController@doUpload');
+
+//特效模块
+Route::group(['prefix'=>'home'],function(){	
+	Route::get('/texiao/wulongcha','home\TexiaoController@wulongcha');
+	Route::get('/texiao/dahongpao','home\TexiaoController@dahongpao');
+	Route::get('/texiao/puer','home\TexiaoController@puer');
+	Route::get('/texiao/wulong','home\TexiaoController@wulong');
+	Route::get('/texiao/lvcha','home\TexiaoController@lvcha');
+	Route::get('/texiao/tieguanyin','home\TexiaoController@tieguanyin');
+	Route::get('/texiao/hongcha','home\TexiaoController@hongcha');
+});

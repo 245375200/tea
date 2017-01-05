@@ -48,7 +48,7 @@
          <div class="Review">已有<a href="#">2345</a>评论</div>
          <div class="p-operate">
           <a href="/home/Product_Detailed/{{$v->Gid}}" class="p-o-btn Collect" style="font-size:14px;color:blue"><em></em>立即购买</a>
-          <a href="javascript:addToCart({{$v->Gid}})" class="p-o-btn shop_cart"><em></em>加入购物车</a>
+          <a href="javascript:addToCart({{$v->Gid}},{{$v->Gpice}})" class="p-o-btn shop_cart"><em></em>加入购物车</a>
          </div>
          </div>
         </li>
@@ -60,13 +60,13 @@
 <script type="text/javascript">
 
        
-   function addToCart(id){
+   function addToCart(id,price){
        var num = 1;        
         $.ajax({
           url:'/addToCart/post',
           async:false,        
           type:'post',        
-          data:{Gid:id,num:num},       
+          data:{Gid:id,num:num,price:price},       
           headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },

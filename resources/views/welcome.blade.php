@@ -61,7 +61,7 @@
 	</div>	
     <div class="Menu_list" style="word-break:break-all">	
 	    <div class="menu_title">茶叶价格</div>
-        <a href="#">100以下</a><br/><a href="#">100-200</a><a href="#">200-400</a><a href="#">400-600</a><br/><a href="#">600-900</a><a href="#">1000以上</a>
+        <a href="javascript:void(0);">100以下</a><br/><a href="javascript:void(0);">100-200</a><a href="javascript:void(0);">200-400</a><a href="javascript:void(0);">400-600</a><br/><a href="javascript:void(0);">600-900</a><a href="javascript:void(0);">1000以上</a>
 	</div>
   <style type="text/css">
       ul,li{margin:0px; padding:0px;}
@@ -158,17 +158,17 @@
 				<ul>
 
         @foreach($list4 as $v)
-					<li><a href="/home/Product_Detailed/{{$v->Gid}}" target="_blank"><img src="{{asset('/uploads')}}/{{$v->pic}}" /></a></li>
+					<li><a href="javascript:void(0)" ><img src="{{asset('/uploads')}}/{{$v->pic}}" /></a></li>
         @endforeach
 				
 				</ul>
 			</div>
-			<a class="prev" href="javascript:void(0)"></a>
-			<a class="next" href="javascript:void(0)"></a>
+			<!-- <a class="prev" href="javascript:void(0)"></a>
+			<a class="next" href="javascript:void(0)"></a> -->
 		</div>
 		<script type="text/javascript">
 
-		jQuery(".slideBox").slide({titCell:".hd ul",mainCell:".bd ul",autoPlay:true,autoPage:true,interTime:5000});
+		jQuery(".slideBox").slide({titCell:".hd ul",mainCell:".bd ul",autoPlay:true,autoPage:true,interTime:2000});
 
 		</script>
 	  </div>     

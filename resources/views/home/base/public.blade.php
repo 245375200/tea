@@ -17,7 +17,19 @@
 <script src="{{asset('js/jquery.spinner.js')}}"></script>
 <link rel="stylesheet" href="{{asset('css/style.css')}}"/>
 <script type="text/javascript" src="{{asset('js/demo.js')}}"></script>
-<title>用户中心</title>
+<link href="{{asset('css/css.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('css/common.css')}}" rel="stylesheet" tyle="text/css" />
+<link href="{{asset('css/Orders.css')}}" rel="stylesheet" type="text/css" />
+<script src="{{asset('js/jquery-1.9.1.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/jquery.reveal.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/jquery.SuperSlide.2.1.1.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/jquery.sumoselect.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/common_js.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/footer.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/jquery.jumpto.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/jquery.spinner.js')}}"></script>
+
+<title>www.tea.com</title>
 </head>
 
 <body>
@@ -35,6 +47,7 @@
        @else
      <a href="/home/login" class="red">[请登录]</a> 
      新用户<a href="/home/registered" class="red">[免费注册]</a>
+
      </li>
      @endif
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的订单</a></li> 
@@ -113,23 +126,7 @@
     
      <div class="hd_Shopping_list" id="Shopping_list">
    <div class="s_cart"><em></em><a href="{{asset('home/mycarts')}}">我的购物车</a> <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount"></i></div>
-  <!--  <div class="dorpdown-layer">
-    <div class="spacer"></div> -->
-	 <!--<div class="prompt"></div><div class="nogoods"><b></b>购物车中还没有商品，赶紧选购吧！</div>-->
-	 <!-- <ul class="p_s_list">	   
-		<li>
-		    <div class="img"><img src="images/tianma.png"></div>
-		    <div class="content"><p><a href="#">产品名称</a></p></div>
-			<div class="Operations">
-			<p class="Price">￥55.00</p>
-			<p><a href="#">删除</a></p></div>
-		  </li>
-		</ul>		
-	 <div class="Shopping_style">
-	 <div class="p-total">共<b>1</b>件商品　共计<strong>￥ 515.00</strong></div>
-	  <a href="#" title="去购物车结算" id="btn-payforgoods" class="Shopping">去购物车结算</a>
-	 </div>	 
-   </div>	 -->
+  
   </div>
 </div>
 </div>

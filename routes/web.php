@@ -42,11 +42,6 @@ Route::resource('/comments','admin\CommentsController');
 Route::get('/comments/edit/{status}/{id}','admin\CommentsController@edit');
 
 
-
-
-
-
-
 // 前台"首页"链接的路由
 Route::get('/homeindex',function(){
 	 return view('welcome');
@@ -94,7 +89,7 @@ Route::resource('/home/findpass','home\PassController');//用了里面的index�
  Route::get('/home/deladress/{id}','home\UsersController@del');
  Route::get('/home/mycomments','home\UsersController@myComments');
  Route::get('/home/delcomments/{id}','home\UsersController@delComments');
-//帮助
+
 //help模块
 Route::group(['prefix'=>'home'],function(){
 	//这是茶列表
@@ -123,12 +118,19 @@ Route::post('/addToCart/post','home\CartController@addCart');
 //我的购物车
 Route::get('home/mycarts','home\CartController@getCart');
 Route::get('/delToCart/get','home\CartController@delMyCart');
+Route::post('/home/submitcart','home\CartController@submitCart');
+
+//最终的订单
+Route::post('/home/findorder','home\FinalOrdersController@index');
+Route::post('/home/sucesspay','home\FinalOrdersController@sucessPay');
+
+
+
 
 
 
 //网站配置路由
 Route::resource('/Conf','admin\ConfController');
-//Route::get('admin/conf','admin\ConfController@index');
 Route::resource('/Links','admin\LinkController');
 
 

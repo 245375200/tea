@@ -17,10 +17,7 @@ class FrontController extends Controller
         $list2 = DB::table('goodlist')->where('level',2)->get();
         $list3 = DB::table('goodlist')->where('level',3)->get();
         //轮播图
-        $list4 = DB::table('figure')
-            ->join('goodlist', 'figure.good_Gname', '=', 'goodlist.Gname')
-            ->select('figure.good_Gname', 'goodlist.Gid','figure.pic')
-            ->get();
+        $list4 = DB::table('figure')->get();
         //链接
         $link = DB::table('link')->get();
         $cate = self::category(0);

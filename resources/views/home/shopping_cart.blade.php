@@ -49,7 +49,8 @@ $(document).ready(function () {
   
 
  
-    <form  method="post" action="" style="width:1300px; margin-left:-150px; ">
+    <form  method="post" action="/home/submitcart" style="width:1300px; margin-left:-150px; name = "myformcart" >
+    <input type='hidden' name='_token' value='{{ csrf_token() }}'>
        <div class="catbox">
         <table id="cartTable"  style="width:1000px; font-size:14px;" style="align:center;">
           <thead>
@@ -66,16 +67,17 @@ $(document).ready(function () {
           <tbody>
           @foreach($list as $v)
         <tr>
-              <td class="checkbox"><input class="check-one check" type="checkbox"/></td>
+              <td class="checkbox"><input class="check-one check" type="checkbox" value = {{$v->id}} name = checkbox[]/></td>
               <td class="goods"><img src="Products/1.jpg" alt=""/><span>{{$v->goods_name}}</span></td>
-              <td class="price">249.00</td>
+              <td class="price">{{$v->Gpice}}</td>
               <td class="count"><span class="reduce"></span>
-                <input class="count-input" type="text" value="{{$v->goods_num}}"/>
+                <input class="count-input" type="text" value="{{$v->goods_num}}" name = "num[{{$v->id}}][]"/>
                 <span class="add">+</span></td>
-              <td class="subtotal">{{$v->Gpice}}</td>
+              <td class="subtotal">{{$v->Gpice*$v->goods_num}}</td>
               <td class="operation">
-              <span class="delete"><a href="javascript:void(0)" onclick="delcart({{$v->id}},this)">删除{{$v->id}}</a></span>
+              <span class="delete"><a href="javascript:void(0)" onclick="delcart({{$v->id}},this)"><button>删除</button></a></span>
               </a></td>
+        </tr>
  <script type="text/javascript">
     function delcart(id,bn){
               var o= $(bn); 
@@ -105,14 +107,14 @@ $(document).ready(function () {
     }
 
 </script>
-        </tr>
+        
         @endforeach
           </tbody>
         </table>
         <div class="foot" id="foot" style="width:1000px;">
           <label style="margin-top:-8px;" class="fl select-all"><input type="checkbox" class="check-all check"/>&nbsp;&nbsp;全选</label>
           <a class="fl delete" style="margin-top:8px;" id="deleteAll" href="javascript:;">删除</a>
-          <div class="fr closing" onclick="getTotal();">结 算</div>
+        <div class="fr closing"  style = "color:red;"><input type = "submit" value = "结算" style="margin-top:10px"></div>
           <input type="hidden" id="cartTotalPrice" />
           <div class="fr total">合计：￥<span id="priceTotal">0.00</span></div>
           <div class="fr selected" id="selected">已选商品<span id="selectedTotal">0</span>件<span class="arrow up"></span><span class="arrow down"></span></div>

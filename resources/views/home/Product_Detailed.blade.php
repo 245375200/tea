@@ -77,19 +77,19 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 		 <div class="P_Quantity">剩余：50000件</div>        
         </dd>
 	  <dd>
-	    <div class="wrap_btn"> <a href="javascript:addToCart({{$list->Gid}})" class="wrap_btn1" title="加入购物车"></a> 
+	    <div class="wrap_btn"> <a href="javascript:addToCart({{$list->Gid}},{{$list->Gpice}})" class="wrap_btn1" title="加入购物车"></a> 
 		  <a href="javascript:addToCart(92)" class="wrap_btn2" title="立即购买"></a> </div>
 		  </dd>
       <script type="text/javascript">
 
        
-   function addToCart(id){
+   function addToCart(id,price){
        var num = $("input[name = 'num']").val();        console.log(num);
         $.ajax({
           url:'/addToCart/post',
           async:false,        //是否异步
           type:'post',        //请求方式
-          data:{Gid:id,num:num},       //发送的数据
+          data:{Gid:id,num:num,price:price},       //发送的数据
           headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },

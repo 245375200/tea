@@ -14,6 +14,7 @@ class CartController extends Controller
     {
         
         $id = $request->input('Gid');
+        $price = $request->input('price');
         $goods_num = $request->input('num');
        $list = DB::table('goodlist')->where('Gid',$id)->first();
        // dd($list);
@@ -23,6 +24,7 @@ class CartController extends Controller
        $data['user_id']     = $user_id;
        $data['goods_name']  = $goods_name;
        $data['goods_num']    = $goods_num;
+       $data['goods_price'] = $price;
 
        $row = DB::table('carts')->insertGetId($data);
        if($row>0){
@@ -51,5 +53,33 @@ class CartController extends Controller
         echo json_encode($row);
 
        }
+    }
+
+
+    public function submitCart(Request $request)
+    {
+        
+        $checkid = $request->input('checkbox');
+        $subnum  = $request->input('num'); 
+        foreach($checkid as $v){
+
+            foreach($subnum as $a=>$b){
+
+                if($v==$a){
+                    foreach($b as $c)
+                    $data['goods_num'] = $c;
+                    DB::table('carts')->where('id',$v)->update($data);
+                    $sub = DB::table('carts')->where('id',$v)->first();
+
+                    $list[] =$sub;
+                }
+            } 
+        }
+        $user_id = session('homeuser')->id;
+        $address = DB::table('addresses')->where('user_id',$user_id)->get();
+        // dd($address);
+
+        return view('home.Orders',['list'=>$list,'address'=>$address]);
+       
     }
 }

@@ -25,7 +25,7 @@
     <img src="{{asset('images/bg_03.png')}}" />
    </div>
    <div class="right_register">
-     <div class="register_Switching" id="register_Switching" style="margin-left:100px;margin-top:40px">
+     <div class="register_Switching" id="register_Switching" style="margin-left:6px;margin-top:40px">
        <div class="hd">
         <ul><li>用户注册</li></ul>
        </div>
@@ -52,10 +52,6 @@
 	    <div class="item"><label class="rgister-label" >电子邮箱：</label><input name="email" type="text"  class="text" /><b>*</b></div> 
 	 
 	    <div class="item "><label  class="rgister-label ">验&nbsp;证&nbsp;码：</label><input name="code" type="text"  class="Recommend_text" style="width:110px" /><img src="{{ url('/capch/'.time()) }}" onclick="this.src='{{ url('/capch') }}/'+Math.random()" style="float:right;margin-right:152px;" ></div>
-		<div class="item-ifo">
-                    <input type="checkbox" class="checkbox left" checked="checked" id="readme" onclick="agreeonProtocol();">
-                    <label for="protocol" class="left">我已阅读并同意<a href="#" class="blue" id="protocol">《福际商城用户注册协议》</a></label>
-                </div>      
 	  </div>	                          
 	  <div class="rgister-btn">
 	         
